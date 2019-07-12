@@ -1,0 +1,60 @@
+<div ch-grid-row>
+  <div ch-grid-column [tablet]="16" [computer]="16" [centered]="false">
+    <div ch-divider></div>
+    <h2 class="ui teal header">Form validation</h2>
+  </div>
+</div>
+<div ch-grid-row>
+  <div ch-grid-column [tablet]="16" [computer]="12" [centered]="false">
+    <div class="ui form" [formGroup]="form">
+      <div class="three fields">
+        <div class="field required" [ngClass]="{'error': form.controls.email.invalid && submited}">
+          <label>E-mail</label>
+          <input type="email" formControlName="email" required />
+          <ch-pointing-label *ngIf="submited && form.controls.email?.errors?.required">
+            E-mail is required
+          </ch-pointing-label>
+          <ch-pointing-label class="error" *ngIf="submited && form.controls.email?.errors?.email">
+            Invalid e-mail
+          </ch-pointing-label>
+        </div>
+        <div class="field required" [ngClass]="{'error': form.controls.name.invalid && submited}">
+          <label>Name</label>
+          <input type="text" formControlName="name" required />
+          <ch-pointing-label *ngIf="submited && form.controls.name?.errors?.required">
+            Name is required
+          </ch-pointing-label>
+        </div>
+        <div class="field required" [ngClass]="{'error': form.controls.profile.invalid && submited}">
+          <label>Profile</label>
+          <select ch-simple-select formControlName="profile" required>
+            <option *ngFor="let item of profiles" [value]="item">
+              {{item}}
+            </option>
+          </select>
+          <ch-pointing-label *ngIf="submited && form.controls.profile?.errors?.required">
+            Profile is required
+          </ch-pointing-label>
+        </div>
+
+      </div>
+      <div class="fields">
+        <div class="field">
+          <div ch-slide>
+            <input type="checkbox" class="hidden" formControlName="active">
+            <label>
+              Active
+            </label>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="ui green basic button" (click)="submit()">
+          <i class="fas fa-save fa-icon"></i>
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

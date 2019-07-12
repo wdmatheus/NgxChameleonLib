@@ -1,0 +1,30 @@
+<div ch-grid-row>
+  <div ch-grid-column [tablet]="16" [computer]="16" [centered]="false">
+    <div ch-divider></div>
+    <h2 class="ui teal header">Modals</h2>
+  </div>
+</div>
+<div ch-grid-row>
+  <div ch-grid-column [tablet]="16" [computer]="16" [centered]="false">
+    <button class="ui purple basic button m-r-20" (click)="alert()">
+      Alert
+    </button>
+    <button class="ui teal basic button  m-r-20" (click)="confirm()">
+      Confirm dialog
+    </button>
+    <button class="ui violet basic button  m-r-20" (click)="openModal()">
+      Open modal
+    </button>
+  </div>
+
+</div>
+
+<ch-modal #modal>
+  <div class="image content">
+    <img src="assets/avatar.png" height="1000" alt="">
+    <div class="description">
+      <p>Madara Uchiha</p>
+    </div>
+  </div>
+
+</ch-modal>

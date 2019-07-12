@@ -1,0 +1,36 @@
+<div ch-grid-row>
+  <div ch-grid-column [tablet]="16" [computer]="16" [centered]="false">
+    <div ch-divider></div>
+    <h2 class="ui teal header">Transictions</h2>
+  </div>
+</div>
+<div ch-grid-row>
+  <div ch-grid-column [tablet]="16" [computer]="16" [centered]="false">
+
+    <ch-transiction-fade [hidden]="hiddenIfNotIsActive(views.visible)" [direction]="'left right'" class="m-t-20">
+
+      <h2 class="ui header blue medium">Showing visible content</h2>
+      <p>
+        Some visible content.
+      </p>
+
+      <button class="ui orange basic button m-r-20" (click)="changeView(views.hidden)">
+        Click here to show hidden content
+      </button>
+    </ch-transiction-fade>
+
+    <ch-transiction-fade [hidden]="hiddenIfNotIsActive(views.hidden)" [direction]="'left right'" class="m-t-20">
+
+      <h2 class="ui header orange medium">Showing hidden content</h2>
+      <p>
+        Some hidden content.
+      </p>
+
+      <button class="ui pink basic button m-r-20" (click)="changeView(views.visible)">
+        Click here to hide the content above
+      </button>
+    </ch-transiction-fade>
+
+  </div>
+
+</div>

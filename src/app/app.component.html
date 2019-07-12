@@ -1,0 +1,86 @@
+<div class="ch-loader-progress"></div>
+<div ch-side-bar app-name="NgxChameleon" logo-url="assets/logo.png">
+  <ch-side-bar-menu>
+
+    <ch-side-bar-link [route]="['/home']" icon="fal fa-home fa-icon" description="Home">
+    </ch-side-bar-link>
+    <ch-side-bar-link [route]="['/account']" icon="fas fa-id-card-alt fa-icon" description="Account">
+    </ch-side-bar-link>
+
+  </ch-side-bar-menu>
+</div>
+
+<div class="ch-content">
+
+  <header ch-top-bar>
+    <ch-top-bar-menu>
+
+      <button class="ch-header-nav-button" (click)="dialogAccounts.open()">
+        Select an account
+        <i class="ch-notification-label fal fa-chevron-down fa-icon dropdown"></i>
+      </button>
+
+      <div class="ch-header-nav-button ch-dropdown ch-user" href="#">
+        <button class="ch-avatar ch-dropdown-toggle" type="button">
+          <img class="ui avatar image" src="assets/avatar.png" />
+        </button>
+        <div class="ch-dropdown-content bottom right" tabindex="-1">
+          <div class="ch-user-container">
+            <div class="ch-user-header">
+              <img class="avatar" src="assets/avatar.png">
+              <div class="info"><strong class="name">Void</strong>
+                <div class="email">void@gmail.com</div>
+              </div>
+            </div>
+            <div class="ch-user-action">
+              <a [href]="" target="_blank">
+                <i class="fal fa-user fa-icon"></i>
+                <span class="label">My profile</span>
+              </a>
+            </div>
+            <div class="ch-user-action">
+              <a [href]="">
+                <i class="fal fa-sign-out fa-icon"></i>
+                <span class="label">
+                  Logout
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ch-top-bar-menu>
+
+  </header>
+
+  <div class="ui padded grid stackable">
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<ch-dialog #dialogAccounts [title-is-html]="true" [title]="'<strong>My Accounts</strong>'">
+  <div class="ui divided selection list items">
+    <div class="item ch-dialog-message unread">
+      <div class="content account-item">
+        <h3 class="header">
+          Account A
+        </h3>
+        <div class="description">
+          <small>Some id for account A</small>
+        </div>
+      </div>
+    </div>
+    <div class="item ch-dialog-message unread">
+      <div class="content account-item">
+        <h3 class="header">
+          Account B
+        </h3>
+        <div class="description">
+          <small>Some id for account B</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</ch-dialog>

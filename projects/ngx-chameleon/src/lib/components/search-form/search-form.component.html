@@ -1,0 +1,31 @@
+<div class="tiny ui icon buttons">
+  <button class="ui blue button" [ngClass]="{'basic': hidden}" (click)="hidden = !hidden" [attr.data-tooltip]="hidden ? 'Mostrar campos de pesquisa' : 'Ocultar campos de pesquisa'" data-inverted="">
+    <i class="fas fa-filter"></i>
+  </button>
+
+  <button class="ui blue button basic" [ngClass]="{'loading': loading}" (click)="search()" data-tooltip="Atualizar" data-inverted="">
+    <i class="fas fa-sync"></i>
+  </button>
+</div>
+
+
+
+
+<ch-transiction-fade [hidden]="hidden">
+  <div class="ui form">
+    <h4 class="ui dividing header"></h4>
+    <ng-content></ng-content>
+    <div>
+      <button class="ui orange basic button" (click)="clear()">
+        <i class="fas fa-eraser fa-icon"></i>
+        {{clearBtnText}}
+      </button>
+      <button class="ui primary basic button" (click)="search()">
+        <i class="fas fa-search fa-icon"></i>
+        {{searchBtnText}}
+      </button>
+    </div>
+    <h4 class="ui dividing header"></h4>
+  </div>
+</ch-transiction-fade>
+
