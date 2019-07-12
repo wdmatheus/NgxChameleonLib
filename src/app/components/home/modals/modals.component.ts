@@ -20,7 +20,7 @@ export class ModalsComponent implements OnInit {
   alert(msg: string = 'Some alert <b>Message</b>!') {
     this.alertService.show({
       isHtml: true,
-      headerTitle: 'Atention',
+      headerTitle: 'Attention',
       msg: msg
     })
   }
