@@ -23,15 +23,15 @@ npm install ngx-chameleon jquery --save
 
 ```json
 "styles": [
-    "libs/css/semantic.min.css",
-    "libs/css/chameleon.min.css",
-    "src/styles.css"
-  ],
-  "scripts": [
-    "node_modules/jquery/dist/jquery.min.js",
-    "libs/js/semantic.min.js",
-    "libs/js/chameleon.min.js"
-  ]
+  "libs/css/semantic.min.css",
+  "libs/css/chameleon.min.css",
+  "src/styles.css"
+],
+"scripts": [
+  "node_modules/jquery/dist/jquery.min.js",
+  "libs/js/semantic.min.js",
+  "libs/js/chameleon.min.js"
+]
 ```
 
 ## Usage
@@ -43,10 +43,10 @@ npm install ngx-chameleon jquery --save
 import { NgxChameleonModule } from 'ngx-chameleon';
 
 @NgModule({
-    imports:[
-        NgxChameleonModule
-    ],
-    bootstrap: [AppComponent]
+  imports:[
+      NgxChameleonModule
+  ],
+  bootstrap: [AppComponent]
 })
 ```
 
