@@ -14,7 +14,7 @@ npm install ngx-chameleon jquery --save
 3. Copy **semantic.min.css** file to **libs/css** folder.
 4. Copy **components** and **themes** folders **libs/css** folder.
 5. Copy **semantic.min.js** file to **libs/js** folder.
-6. Download [Chameleon](http://docs.chameleon.nexaas.com/download-here.html).
+6. Download 7
 7. Copy **chameleon.min.css** file to **libs/css** folder.
 8. Copy **chameleon.min.js** file to **libs/js** folder.
 9. Create some image with the name **bg_app.jpg** in the **libs/images** folder (chameleon css references this image, this step is necessary to avoid angular compilation errors).
