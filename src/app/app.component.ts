@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, Event, NavigationError, NavigationStart, NavigationEnd, NavigationCancel } from '@angular/router';
-import { TopBarLoaderServiceService } from 'projects/ngx-chameleon/src/lib/utils';
+import { TopBarLoaderServiceService } from 'ngx-chameleon';
 
 @Component({
   selector: 'app-root',

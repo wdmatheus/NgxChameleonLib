@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TopBarBreadcrumbService } from 'projects/ngx-chameleon/src/public-api';
+import { TopBarBreadcrumbService } from 'ngx-chameleon';
 
 @Component({
   selector: 'app-account',

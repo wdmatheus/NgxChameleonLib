@@ -11,13 +11,7 @@ import { AccountComponent } from './components/account/account.component';
 import { FormValidationComponent } from './components/home/form-validation/form-validation.component';
 import { ModalsComponent } from './components/home/modals/modals.component';
 import { TransictionsComponent } from './components/home/transictions/transictions.component';
-
-
-//local reference
-import { NgxChameleonModule } from '../../projects/ngx-chameleon/src/public-api';
-
-//npm reference
-//import { NgxChameleonModule } from 'ngx-chameleon';
+import { NgxChameleonModule } from 'ngx-chameleon';
 
 @NgModule({
   declarations: [

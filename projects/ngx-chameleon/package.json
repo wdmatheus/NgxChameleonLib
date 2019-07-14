@@ -3,9 +3,13 @@
   "description": "Chameleon module for Angular",
   "author": {
     "email": "wendel.matheus@lexnnova.com",
-    "name": "Wendel Matheus"
+    "name": "Wendel Matheus",
+    "url": "https://github.com/wdmatheus/NgxChameleonLib"
   },
-  "version": "0.0.1",
+  "bugs": {
+    "url": "https://github.com/wdmatheus/NgxChameleonLib/issues"
+  },
+  "version": "1.0.1",
   "peerDependencies": {
     "@angular/common": "^8.1.1",
     "@angular/core": "^8.1.1"

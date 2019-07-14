@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AlertService, ModalComponent } from 'projects/ngx-chameleon/src/public-api';
+import { AlertService, ModalComponent } from 'ngx-chameleon';;
 
 @Component({
   selector: 'app-modals',
