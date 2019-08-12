@@ -184,7 +184,7 @@ export class HomeComponent implements OnInit {
         </div>
         <div class="field required" [ngClass]="{'error': form.controls.profile.invalid && submited}">
           <label>Profile</label>
-          <select ch-simple-select formControlName="profile" required>
+          <select ch-dropdown-select formControlName="profile" required>
             <option *ngFor="let item of profiles" [value]="item">
               {{item}}
             </option>

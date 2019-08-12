@@ -2,7 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TooltipDirective } from './directives/tooltip-select.directive';
 import { SlideDirective } from './directives/slide.directive';
-import { SimpleSelectDirective } from './directives/simple-select.directive';
+import { DropdownSelect } from './directives/dropdown-select.directive';
 import { AlertComponent } from './components/alert/alert.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { SideBarLinkComponent } from './components/side-bar/side-bar-link/side-bar-link.component';
@@ -28,7 +28,7 @@ import { GridRowComponent } from './components/grid-row/grid-row.component';
 @NgModule({
   declarations: [
     SlideDirective,
-    SimpleSelectDirective,
+    DropdownSelect,
     TooltipDirective,
     AlertComponent,
     ModalComponent,
@@ -48,7 +48,7 @@ import { GridRowComponent } from './components/grid-row/grid-row.component';
     AccordionComponent,
     AccordionContentComponent,
     AccordionTitleComponent,
-    EmbedComponent
+    EmbedComponent,
   ],
   imports: [
     CommonModule,
@@ -56,7 +56,7 @@ import { GridRowComponent } from './components/grid-row/grid-row.component';
   ],
   exports: [
     SlideDirective,
-    SimpleSelectDirective,
+    DropdownSelect,
     TooltipDirective,
     AlertComponent,
     ModalComponent,
@@ -76,7 +76,7 @@ import { GridRowComponent } from './components/grid-row/grid-row.component';
     AccordionComponent,
     AccordionContentComponent,
     AccordionTitleComponent,
-    EmbedComponent
+    EmbedComponent,
   ],
   entryComponents: [
     AlertComponent

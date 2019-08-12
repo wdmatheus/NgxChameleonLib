@@ -1,9 +1,9 @@
 <div class="tiny ui icon buttons">
-  <button class="ui blue button" [ngClass]="{'basic': hidden}" (click)="hidden = !hidden" [attr.data-tooltip]="hidden ? 'Mostrar campos de pesquisa' : 'Ocultar campos de pesquisa'" data-inverted="">
+  <button class="ui blue button" [ngClass]="{'basic': hidden}" (click)="hidden = !hidden" [attr.data-tooltip]="hidden ? hiddenSearchBtnTooltip : visibleSearchBtnTooltip" data-inverted="">
     <i class="fas fa-filter"></i>
   </button>
 
-  <button class="ui blue button basic" [ngClass]="{'loading': loading}" (click)="search()" data-tooltip="Atualizar" data-inverted="">
+  <button class="ui blue button basic" [ngClass]="{'loading': loading}" (click)="search()" [attr.data-tooltip]="updateBtnTooltip" data-inverted="">
     <i class="fas fa-sync"></i>
   </button>
 </div>

@@ -27,7 +27,7 @@
         </div>
         <div class="field required" [ngClass]="{'error': form.controls.profile.invalid && submited}">
           <label>Profile</label>
-          <select ch-simple-select formControlName="profile" required>
+          <select ch-dropdown-select formControlName="profile" required>
             <option *ngFor="let item of profiles" [value]="item">
               {{item}}
             </option>
@@ -49,6 +49,10 @@
         </div>
       </div>
       <div>
+        <button class="ui red basic button" (click)="cancel()">
+          <i class="fas fa-ban fa-icon"></i>
+          Cancel
+        </button>
         <button class="ui green basic button" (click)="submit()">
           <i class="fas fa-save fa-icon"></i>
           Submit

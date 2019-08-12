@@ -5,9 +5,9 @@ import { takeWhile } from 'rxjs/operators';
 declare var $: any;
 
 @Directive({
-  selector: '[ch-simple-select]'
+  selector: '[ch-dropdown-select]'
 })
-export class SimpleSelectDirective implements OnInit, AfterViewInit, OnDestroy {
+export class DropdownSelect implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(private element: ElementRef,
     @Self() private ngControl: NgControl) {
@@ -16,15 +16,19 @@ export class SimpleSelectDirective implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {
     (this.element.nativeElement as HTMLElement).classList.add('ui', 'dropdown');
     if (this.ngControl) {
-
       this.ngControl.valueChanges.pipe(
         takeWhile(() => this.isAlive)
       ).subscribe(value => {
-        setTimeout(() =>  $(this.element.nativeElement).dropdown('destroy').dropdown(),1);
+        if(!this.cleared && (!value || (value instanceof Array && value.length == 0))){
+          setTimeout(() => $(this.element.nativeElement.parentElement).dropdown('clear'));
+          this.cleared = true;
+          return;
+        }
+        this.cleared = false;
       });
-
     }
-  }
+
+   }
 
   ngAfterViewInit() {
     this.initialize();
@@ -34,13 +38,15 @@ export class SimpleSelectDirective implements OnInit, AfterViewInit, OnDestroy {
     this.isAlive = false;
   }
 
-  private isAlive: boolean = true;
+  private cleared: boolean = false;
 
-  @HostListener('change') ngOnChanges() {
-    setTimeout(() =>  $(this.element.nativeElement).dropdown('destroy').dropdown(),1);
-  }
+  private isAlive: boolean = true;
 
   private initialize(){
     $(this.element.nativeElement).dropdown();
+  }
+
+  private clear(){
+    $(this.element.nativeElement.parentElement).dropdown("clear");
   }
 }
