@@ -17,7 +17,7 @@ export class SearchFormComponent implements OnInit {
   @Input('clearBtnText')clearBtnText: string = 'Limpar';
   @Input('searchBtnText')searchBtnText: string = 'Pesquisar';
   @Input('hiddenSearchBtnTooltip')hiddenSearchBtnTooltip: string = 'Mostrar campos de pesquisa';
-  @Input('hiddenSearchBtnTooltip')visibleSearchBtnTooltip: string = 'Ocultar campos de pesquisa';
+  @Input('visibleSearchBtnTooltip')visibleSearchBtnTooltip: string = 'Ocultar campos de pesquisa';
   @Input('updateBtnTooltip')updateBtnTooltip: string = 'Atualizar';
   @Input('loading')loading: boolean = false;
 
