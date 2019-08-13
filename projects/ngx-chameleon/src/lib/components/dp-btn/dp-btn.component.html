@@ -1,0 +1,6 @@
+<i [attr.class]="icon"></i>
+<span class="btn-text" *ngIf="text">{{text}}</span>
+<div class="menu">
+  <div class="header" *ngIf="header">{{header}}</div>
+  <ng-content></ng-content>
+</div>

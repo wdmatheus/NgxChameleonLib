@@ -6,6 +6,7 @@ export * from './lib/ngx-chameleon.module';
 export * from './lib/components/accordion/index';
 export * from './lib/components/alert/index';
 export * from './lib/components/dialog/index';
+export * from './lib/components/dp-btn/index';
 export * from './lib/components/embed/index';
 export * from './lib/components/grid-column/index';
 export * from './lib/components/grid-row/index';

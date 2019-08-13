@@ -23,6 +23,7 @@ import { AccordionTitleComponent } from './components/accordion/accordion-title/
 import { EmbedComponent } from './components/embed/embed.component';
 import { CommonModule } from '@angular/common';
 import { GridRowComponent } from './components/grid-row/grid-row.component';
+import { DpBtnComponent } from './components/dp-btn';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { GridRowComponent } from './components/grid-row/grid-row.component';
     AccordionContentComponent,
     AccordionTitleComponent,
     EmbedComponent,
+    DpBtnComponent,
   ],
   imports: [
     CommonModule,
@@ -77,6 +79,7 @@ import { GridRowComponent } from './components/grid-row/grid-row.component';
     AccordionContentComponent,
     AccordionTitleComponent,
     EmbedComponent,
+    DpBtnComponent
   ],
   entryComponents: [
     AlertComponent
