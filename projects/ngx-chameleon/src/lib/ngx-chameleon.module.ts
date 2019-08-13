@@ -1,6 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { TooltipDirective } from './directives/tooltip-select.directive';
+import { CommonModule } from '@angular/common';
+import { TooltipDirective } from './directives/tooltip.directive';
 import { SlideDirective } from './directives/slide.directive';
 import { DropdownSelect } from './directives/dropdown-select.directive';
 import { AlertComponent } from './components/alert/alert.component';
@@ -21,9 +22,8 @@ import { AccordionComponent } from './components/accordion/accordion.component';
 import { AccordionContentComponent } from './components/accordion/accordion-content/accordion-content.component';
 import { AccordionTitleComponent } from './components/accordion/accordion-title/accordion-title.component';
 import { EmbedComponent } from './components/embed/embed.component';
-import { CommonModule } from '@angular/common';
 import { GridRowComponent } from './components/grid-row/grid-row.component';
-import { DpBtnComponent } from './components/dp-btn';
+import { DpBtnComponent } from './components/dp-btn/dp-btn.component';
 
 
 @NgModule({

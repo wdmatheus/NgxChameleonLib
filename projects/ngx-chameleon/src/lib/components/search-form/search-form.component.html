@@ -1,15 +1,14 @@
 <div class="tiny ui icon buttons">
-  <button class="ui blue button" [ngClass]="{'basic': hidden}" (click)="hidden = !hidden" [attr.data-tooltip]="hidden ? hiddenSearchBtnTooltip : visibleSearchBtnTooltip" data-inverted="">
+  <button class="ui blue button" [ngClass]="{'basic': hidden}" (click)="hidden = !hidden" ch-tooltip
+    [content]="hidden ? hiddenSearchBtnTooltip : visibleSearchBtnTooltip" [is-inverted]="tootipIsInverted" [position]="tootipIsInvertedPosition" [is-html]="true">
     <i class="fas fa-filter"></i>
   </button>
 
-  <button class="ui blue button basic" [ngClass]="{'loading': loading}" (click)="search()" [attr.data-tooltip]="updateBtnTooltip" data-inverted="">
+  <button class="ui blue button basic" [ngClass]="{'loading': loading}" (click)="search()" ch-tooltip
+    [content]="updateBtnTooltip" [is-inverted]="tootipIsInverted" [is-html]="true" [position]="tootipIsInvertedPosition">
     <i class="fas fa-sync"></i>
   </button>
 </div>
-
-
-
 
 <ch-transiction-fade [hidden]="hidden">
   <div class="ui form">
@@ -28,4 +27,3 @@
     <h4 class="ui dividing header"></h4>
   </div>
 </ch-transiction-fade>
-
