@@ -6,4 +6,6 @@ export interface AlertOptions{
   isHtml?:boolean;
   cancelFn?:Function;
   confirmFn?:Function;
+  confirmBtnColor?: string;
+  cancelBtnColor?: string;
 }

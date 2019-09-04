@@ -1,14 +1,28 @@
-<div class="tiny ui icon buttons">
+<div class="tiny ui icon buttons" *ngIf="withTooltip; else withoutTooltipTem">
   <button class="ui blue button" [ngClass]="{'basic': hidden}" (click)="hidden = !hidden" ch-tooltip
-    [content]="hidden ? hiddenSearchBtnTooltip : visibleSearchBtnTooltip" [is-inverted]="tootipIsInverted" [position]="tootipIsInvertedPosition" [is-html]="true">
+    [content]="hidden ? hiddenSearchBtnTooltip : visibleSearchBtnTooltip" [is-inverted]="tootipIsInverted"
+    [position]="tootipIsInvertedPosition" [is-html]="true">
     <i class="fas fa-filter"></i>
   </button>
 
   <button class="ui blue button basic" [ngClass]="{'loading': loading}" (click)="search()" ch-tooltip
-    [content]="updateBtnTooltip" [is-inverted]="tootipIsInverted" [is-html]="true" [position]="tootipIsInvertedPosition">
+    [content]="updateBtnTooltip" [is-inverted]="tootipIsInverted" [is-html]="true"
+    [position]="tootipIsInvertedPosition">
     <i class="fas fa-sync"></i>
   </button>
 </div>
+
+<ng-template #withoutTooltipTem>
+  <div class="tiny ui icon buttons">
+    <button class="ui blue button" [ngClass]="{'basic': hidden}" (click)="hidden = !hidden">
+      <i class="fas fa-filter"></i>
+    </button>
+
+    <button class="ui blue button basic" [ngClass]="{'loading': loading}" (click)="search()">
+      <i class="fas fa-sync"></i>
+    </button>
+  </div>
+</ng-template>
 
 <ch-transiction-fade [hidden]="hidden">
   <div class="ui form">

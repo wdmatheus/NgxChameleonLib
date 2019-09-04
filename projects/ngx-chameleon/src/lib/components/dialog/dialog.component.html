@@ -1,6 +1,6 @@
 <div [id]="ids.dialog" class="ch-dialog" tabindex="0">
   <div [id]="ids.overlay" class="ch-overlay">
-    <div [id]="ids.dialogContainer" class="ch-dialog-container">
+    <div [id]="ids.dialogContainer" class="ch-dialog-container" [ngStyle]="{width: width}">
       <div class="ch-dialog-header">
         <div class="content">
           <div class="title" *ngIf="title">

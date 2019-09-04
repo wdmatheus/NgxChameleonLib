@@ -19,13 +19,13 @@ export class DialogComponent implements OnInit, AfterViewInit, OnDestroy {
       $.keyboardClose(e, close);
     });
     let dom = this.domOverlay;
-    if (dom)
+    if (dom && this.closeOnClick)
       (dom as HTMLElement).addEventListener('click', () => this.close());
   }
 
   ngOnDestroy() {
     let dom = this.domOverlay;
-    if (dom)
+    if (dom && this.closeOnClick)
       (dom as HTMLElement).removeEventListener('click', () => this.close());
   }
 
@@ -50,6 +50,10 @@ export class DialogComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input('title') title: string;
 
   @Input('title-is-html') titleIsHtml: boolean = false;
+
+  @Input('close-on-click')closeOnClick: boolean = true;
+
+  @Input('width')width: string = '400px';
 
   ids: any = {
     overlay: `${this.idService.get()}-overlay`,

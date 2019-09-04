@@ -24,6 +24,7 @@ import { AccordionTitleComponent } from './components/accordion/accordion-title/
 import { EmbedComponent } from './components/embed/embed.component';
 import { GridRowComponent } from './components/grid-row/grid-row.component';
 import { DpBtnComponent } from './components/dp-btn/dp-btn.component';
+import { ThSortDirective } from './directives/th-sort.directive';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { DpBtnComponent } from './components/dp-btn/dp-btn.component';
     SlideDirective,
     DropdownSelect,
     TooltipDirective,
+    ThSortDirective,
     AlertComponent,
     ModalComponent,
     SideBarLinkComponent,
@@ -60,6 +62,7 @@ import { DpBtnComponent } from './components/dp-btn/dp-btn.component';
     SlideDirective,
     DropdownSelect,
     TooltipDirective,
+    ThSortDirective,
     AlertComponent,
     ModalComponent,
     SideBarLinkComponent,

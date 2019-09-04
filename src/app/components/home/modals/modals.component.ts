@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AlertService, ModalComponent } from 'ngx-chameleon';;
+//import { AlertService, ModalComponent } from 'ngx-chameleon';
+import { AlertService, ModalComponent } from '../../../../../projects/ngx-chameleon/src/public-api';
 
 @Component({
   selector: 'app-modals',
@@ -33,7 +34,9 @@ export class ModalsComponent implements OnInit {
       confirmFn: () => this.alert('You clicked Yes'),
       headerTitle: 'Confirm action',
       isHtml: true,
-      msg: 'Do you confirm the action?'
+      msg: 'Do you confirm the action?',
+      confirmBtnColor: 'red',
+      cancelBtnColor: 'basic'
     });
   }
 

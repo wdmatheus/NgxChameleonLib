@@ -60,10 +60,10 @@
   </div>
 </div>
 
-<ch-dialog #dialogAccounts [title-is-html]="true" [title]="'<strong>My Accounts</strong>'">
+<ch-dialog #dialogAccounts [title-is-html]="true" [title]="'<strong>My Accounts</strong>'" [close-on-click]="false">
   <div class="ui divided selection list items">
     <div class="item ch-dialog-message unread">
-      <div class="content account-item">
+      <div class="content account-item" (click)="dialogAccounts.close()">
         <h3 class="header">
           Account A
         </h3>

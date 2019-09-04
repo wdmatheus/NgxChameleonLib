@@ -1,21 +1,21 @@
 <div [id]="modalId" class="ui tiny modal">
-  <div *ngIf="alertOptions?.headerTitle" class="header">
-    {{alertOptions?.headerTitle}}
+  <div *ngIf="options?.headerTitle" class="header">
+    {{options?.headerTitle}}
   </div>
   <div class="content">
-    <div *ngIf="!alertOptions?.isHtml;else htmlMsg;">
-      {{alertOptions?.msg}}
+    <div *ngIf="!options?.isHtml;else htmlMsg;">
+      {{options?.msg}}
     </div>
     <ng-template #htmlMsg>
-      <div [innerHTML]="alertOptions?.msg"></div>
+      <div [innerHTML]="options?.msg"></div>
     </ng-template>
   </div>
   <div class="actions">
-    <button class="ui red button" *ngIf="alertOptions?.cancelFn" (click)="cancel()">
-      {{alertOptions?.cancelText}}
+    <button [attr.class]="cancelBtnClass" *ngIf="options?.cancelFn" (click)="cancel()">
+      {{options?.cancelText}}
     </button>
-    <button class="ui green button" (click)="confirm()">
-      {{alertOptions?.confirmText}}
+    <button [attr.class]="confirmBtnClass" (click)="confirm()">
+      {{options?.confirmText}}
     </button>
   </div>
 </div>

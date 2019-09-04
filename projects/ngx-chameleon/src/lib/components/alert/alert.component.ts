@@ -17,28 +17,40 @@ export class AlertComponent implements OnInit {
 
   modalId: string = '';
 
-  alertOptions: AlertOptions;
+  options: AlertOptions;
 
   open(alertOptions: AlertOptions){
-    this.alertOptions = alertOptions;
-    this.alertOptions.cancelText = this.alertOptions.cancelText || 'Cancelar';
-    this.alertOptions.confirmText = this.alertOptions.confirmText || 'OK';
+    this.options = alertOptions;
+    this.options.cancelText = this.options.cancelText || 'Cancelar';
+    this.options.confirmText = this.options.confirmText || 'OK';
+    this.options.confirmBtnColor = this.options.confirmBtnColor || 'green';
+    this.options.cancelBtnColor = this.options.cancelBtnColor || 'red';
     $(`#${this.modalId}`).modal({
       closable: false,
     }).modal('show');
   }
 
   confirm(){
-    let fn = (this.alertOptions.confirmFn) || (() => {});
+    let fn = (this.options.confirmFn) || (() => {});
     fn();
     this.close();
   }
   cancel(){
-    this.alertOptions.cancelFn();
+    this.options.cancelFn();
     this.close();
   }
 
   close() {
     $(`#${this.modalId}`).modal('hide');
+  }
+
+  get confirmBtnClass(): string{
+    let color = this.options && this.options.confirmBtnColor ? this.options.confirmBtnColor : 'green';
+    return `ui ${color} button`
+  }
+
+  get cancelBtnClass(): string{
+    let color = this.options && this.options.cancelBtnColor ? this.options.cancelBtnColor : 'red';
+    return `ui ${color} button`
   }
 }

@@ -22,6 +22,7 @@ export class SearchFormComponent implements OnInit {
   @Input('loading')loading: boolean = false;
   @Input('tootipIsInverted')tootipIsInverted: boolean = true;
   @Input('tootipIsInvertedPosition') tootipIsInvertedPosition: string = 'top left';
+  @Input('with-tooltip')withTooltip: boolean = false;
 
   @Output('on-clear')onClear: EventEmitter<any> = new EventEmitter<any>();
   @Output('on-search')onSearch: EventEmitter<any> = new EventEmitter<any>();
