@@ -16,4 +16,5 @@ export class SideBarLinkComponent implements OnInit {
   @Input('icon')icon: string = '';
   @Input('description')description: string = '';
   @Input('exact-link')exactLink: boolean = false;
+  @Input('has-children')hasChildren: boolean = false;
 }
