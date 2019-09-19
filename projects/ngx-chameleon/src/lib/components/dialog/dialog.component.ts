@@ -21,16 +21,13 @@ export class DialogComponent implements OnInit, AfterViewInit, OnDestroy {
     let domOverlay = this.domOverlay;
 
     if (domOverlay)
-      (domOverlay as HTMLElement).addEventListener('click', () => this.closeOnClick ? this.close() : () =>{});
-
-
+      (domOverlay as HTMLElement).addEventListener('click', (e) => this.closeEvent(e), false);
   }
 
   ngOnDestroy() {
     let domOverlay = this.domOverlay;
     if (domOverlay)
-      (domOverlay as HTMLElement).removeEventListener('click', () => this.close());
-
+      (domOverlay as HTMLElement).removeEventListener('click', (e) => this.closeEvent(e), false);
   }
 
   get domOverlay(): any {
@@ -93,6 +90,19 @@ export class DialogComponent implements OnInit, AfterViewInit, OnDestroy {
   close() {
     $(this.idDialogContainer).removeClass('active');
     $(this.idDialog).hide(this.effectDuration);
+  }
+
+  closeEvent(e: any) {
+
+    if(this.closeOnClick == true){
+      this.close();
+      return;
+    }
+
+    if(this.closeOnClick == false && e != null && e.target.id == this.ids.overlay){
+      this.close();
+      return;
+    }
   }
 
 }

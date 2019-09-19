@@ -64,7 +64,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "NgxChameleonLib:build"
+            "browserTarget": "NgxChameleonLib:build",
+            "port": 4210
           },
           "configurations": {
             "production": {
