@@ -18,19 +18,27 @@ export class DialogComponent implements OnInit, AfterViewInit, OnDestroy {
     $(this.idDialog).on('keydown', function (e) {
       $.keyboardClose(e, close);
     });
-    let dom = this.domOverlay;
-    if (dom && this.closeOnClick)
-      (dom as HTMLElement).addEventListener('click', () => this.close());
+    let domOverlay = this.domOverlay;
+
+    if (domOverlay)
+      (domOverlay as HTMLElement).addEventListener('click', () => this.closeOnClick ? this.close() : () =>{});
+
+
   }
 
   ngOnDestroy() {
-    let dom = this.domOverlay;
-    if (dom && this.closeOnClick)
-      (dom as HTMLElement).removeEventListener('click', () => this.close());
+    let domOverlay = this.domOverlay;
+    if (domOverlay)
+      (domOverlay as HTMLElement).removeEventListener('click', () => this.close());
+
   }
 
   get domOverlay(): any {
     return document.getElementById(this.ids.overlay);
+  }
+
+  get domDialogContainer(): any {
+    return document.getElementById(this.ids.dialogContainer);
   }
 
   private _duration: string = '300';
@@ -51,9 +59,9 @@ export class DialogComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input('title-is-html') titleIsHtml: boolean = false;
 
-  @Input('close-on-click')closeOnClick: boolean = true;
+  @Input('close-on-click') closeOnClick: boolean = true;
 
-  @Input('width')width: string = '400px';
+  @Input('width') width: string = '400px';
 
   ids: any = {
     overlay: `${this.idService.get()}-overlay`,
