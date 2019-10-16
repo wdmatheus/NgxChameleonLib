@@ -27,7 +27,7 @@ export class SearchFormComponent implements OnInit {
   @Output('on-clear')onClear: EventEmitter<any> = new EventEmitter<any>();
   @Output('on-search')onSearch: EventEmitter<any> = new EventEmitter<any>();
 
-  hidden: boolean = true;
+  @Input('hidden')hidden: boolean = true;
 
   clear = () => this.onClear.emit();
   search = () => this.onSearch.emit();
