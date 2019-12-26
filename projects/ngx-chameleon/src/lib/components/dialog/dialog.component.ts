@@ -60,6 +60,8 @@ export class DialogComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input('width') width: string = '400px';
 
+  @Input('on-close')onClose: Function;
+
   ids: any = {
     overlay: `${this.idService.get()}-overlay`,
     dialog: `${this.idService.get()}-dialog`,
@@ -90,6 +92,7 @@ export class DialogComponent implements OnInit, AfterViewInit, OnDestroy {
   close() {
     $(this.idDialogContainer).removeClass('active');
     $(this.idDialog).hide(this.effectDuration);
+    if(this.onClose) this.onClose();
   }
 
   closeEvent(e: any) {

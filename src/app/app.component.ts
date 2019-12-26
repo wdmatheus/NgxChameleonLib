@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router, Event, NavigationError, NavigationStart, NavigationEnd, NavigationCancel } from '@angular/router';
-import { TopBarLoaderServiceService } from 'ngx-chameleon';
+import { TopBarLoaderServiceService, DialogComponent } from '../../projects/ngx-chameleon/src/public-api';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   constructor(private  router: Router,
     private topBarLoaderService: TopBarLoaderServiceService) {
@@ -25,4 +25,11 @@ export class AppComponent {
       }
     });
   }
+
+  ngOnInit(){
+    this.dialogAccounts.onClose = () => console.log('Test on close');
+  }
+
+  @ViewChild('dialogAccounts', { static: true })dialogAccounts: DialogComponent;
 }
+
