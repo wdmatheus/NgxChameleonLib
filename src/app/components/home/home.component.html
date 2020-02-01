@@ -1,3 +1,39 @@
 <app-form-validation></app-form-validation>
 <app-modals></app-modals>
 <app-transictions></app-transictions>
+
+<h2  class="ui teal header">Form search</h2>
+<div ch-grid-row>
+  <div
+        ch-grid-column
+        tablet="16"
+        computer="16">
+        <div
+            class="row m-b-30"
+            ch-search-form
+            [with-tooltip]="true"
+            color="purple"
+            [hidden]="true"
+            [loading]="loading"
+            [searchBtnText]="Search"
+            [clearBtnText]="Clear"
+            [hiddenSearchBtnTooltip]="'Hidden tooltip'"
+            [visibleSearchBtnTooltip]="'Visible tooltip'"
+            [updateBtnTooltip]="'Update tooltip'"
+            [updateBtnTooltip]="''"
+            (on-clear)="clear($event)"
+            (on-search)="search($event)">
+            <form [formGroup]="form">
+                <div class="field m-b-20">
+                    <label>
+                        Term
+                    </label>
+                    <input
+                        type="text"
+                        formControlName="term">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

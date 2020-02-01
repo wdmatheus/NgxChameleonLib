@@ -1,11 +1,11 @@
 <div class="tiny ui icon buttons" *ngIf="withTooltip; else withoutTooltipTem">
-  <button class="ui blue button" [ngClass]="{'basic': hidden}" (click)="hidden = !hidden" ch-tooltip
+  <button [attr.class]="'ui ' + color + ' button' + (hidden ? ' basic' : '')" [ngClass]="{'basic': hidden}" (click)="hidden = !hidden" ch-tooltip
     [content]="hidden ? hiddenSearchBtnTooltip : visibleSearchBtnTooltip" [is-inverted]="tootipIsInverted"
     [position]="tootipIsInvertedPosition" [is-html]="true">
     <i class="fas fa-filter"></i>
   </button>
 
-  <button class="ui blue button basic" [ngClass]="{'loading': loading}" (click)="search()" ch-tooltip
+  <button  [attr.class]="'ui ' + color + ' button basic'" [ngClass]="{'loading': loading}" (click)="search()" ch-tooltip
     [content]="updateBtnTooltip" [is-inverted]="tootipIsInverted" [is-html]="true"
     [position]="tootipIsInvertedPosition">
     <i class="fas fa-sync"></i>
@@ -14,11 +14,11 @@
 
 <ng-template #withoutTooltipTem>
   <div class="tiny ui icon buttons">
-    <button class="ui blue button" [ngClass]="{'basic': hidden}" (click)="hidden = !hidden">
+    <button [attr.class]="'ui ' + color + ' button' + (hidden ? ' basic' : '')" [ngClass]="{'basic': hidden}" (click)="hidden = !hidden">
       <i class="fas fa-filter"></i>
     </button>
 
-    <button class="ui blue button basic" [ngClass]="{'loading': loading}" (click)="search()">
+    <button [attr.class]="'ui ' + color + ' button basic'" [ngClass]="{'loading': loading}" (click)="search()">
       <i class="fas fa-sync"></i>
     </button>
   </div>
@@ -33,7 +33,7 @@
         <i class="fas fa-eraser fa-icon"></i>
         {{clearBtnText}}
       </button>
-      <button class="ui primary basic button" (click)="search()">
+      <button [attr.class]="'ui ' + color + ' basic button'" (click)="search()">
         <i class="fas fa-search fa-icon"></i>
         {{searchBtnText}}
       </button>

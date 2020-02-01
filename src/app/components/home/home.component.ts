@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TopBarBreadcrumbService } from 'ngx-chameleon';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -16,5 +17,20 @@ export class HomeComponent implements OnInit {
       icon: 'fal fa-home fa-icon',
       path: ['NgxChameleon', 'Home']
     });
+  }
+
+  loading = false;
+
+  form = new FormGroup({
+    term: new FormControl('')
+  });
+
+  clear($event){
+    this.form.reset();
+  }
+
+  search($event){
+    this.loading = true;
+    setTimeout(() => this.loading = false, 500);
   }
 }
