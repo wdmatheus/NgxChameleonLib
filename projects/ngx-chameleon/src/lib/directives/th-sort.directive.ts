@@ -1,12 +1,26 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, Input, SimpleChanges, OnChanges } from '@angular/core';
 
 @Directive({
   selector: '[ch-th-sort]'
 })
-export class ThSortDirective {
+export class ThSortDirective implements OnChanges{
 
   constructor(private elementRef: ElementRef) {
 
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+
+    if(changes.currentSortField && changes.currentSortField.currentValue){
+      this.currentSortDir = changes.currentSortField.currentValue;
+    }
+    if(changes.currentSortDir && changes.currentSortDir.currentValue){
+      this.currentSortDir = changes.currentSortDir.currentValue;
+    }
+    if(changes.sortField && changes.sortField.currentValue){
+      this.sortField = changes.sortField.currentValue;
+    }
+    this.handleClass();
   }
 
   private get domElem(): HTMLElement{
