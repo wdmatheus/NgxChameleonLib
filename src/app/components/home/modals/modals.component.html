@@ -15,11 +15,15 @@
     <button class="ui violet basic button  m-r-20" (click)="openModal()">
       Open modal
     </button>
+    <button class="ui violet basic button  m-r-20" (click)="modal2.open({title: 'Title'})">
+      Open modal 2
+    </button>
   </div>
 
 </div>
 
 <ch-modal #modal>
+
   <div class="image content">
     <img src="assets/avatar.png" height="1000" alt="">
     <div class="description">
@@ -27,4 +31,8 @@
     </div>
   </div>
 
+</ch-modal>
+
+<ch-modal #modal2>
+  <h1 class="ui header teal">Test Modal</h1>
 </ch-modal>

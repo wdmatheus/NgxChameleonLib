@@ -69,5 +69,6 @@ export class ModalComponent implements OnInit, OnChanges {
 
   close() {
     $(`#${this.modalId}`).modal('hide');
+    $(`#${this.modalId}`).remove();
   }
 }
