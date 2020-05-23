@@ -37,4 +37,11 @@ export class SideBarComponent implements OnInit  {
     this.collapsed = !this.collapsed;
     localStorage.setItem(this.collapsedKey, JSON.stringify(this.collapsed));
   }
+
+  get expandButtonIconClass(): string{
+    return `${this.expandButtonData.icon} fa-icon text ${this.expandButtonData.color}`
+  }
+  get expandButtonTextClass(): string {
+    return `ch-menu-item-label text  ${this.expandButtonData.color}`
+  }
 }

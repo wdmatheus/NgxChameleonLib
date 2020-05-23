@@ -22,13 +22,13 @@
 
     <ul
         class="ch-menu"
-        *ngIf="expandButtonData?.text">
+        *ngIf="expandButtonData.text">
         <li class="ch-menu-item"></li>
 
         <li class="ch-menu-item">
-            <a [href]>
-                <i [attr.class]="expandButtonData?.icon + ' fa-icon text ' + expandButtonData?.color"></i>
-                <span [attr.class]="'ch-menu-item-label text ' + expandButtonData?.color">{{expandButtonData?.text}}</span>
+            <a [href]="">
+                <i [attr.class]="expandButtonIconClass"></i>
+                <span [attr.class]="expandButtonTextClass">{{expandButtonData?.text}}</span>
             </a>
         </li>
     </ul>
