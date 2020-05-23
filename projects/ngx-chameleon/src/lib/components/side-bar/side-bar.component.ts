@@ -27,6 +27,11 @@ export class SideBarComponent implements OnInit  {
   @Input('logo-url') logoUrl:string = '';
   @Input('app-url') appUrl:string = '';
 
+  @Input('expand-button-data') expandButtonData = {
+    text: '',
+    color: 'red'
+  };
+
   changeState(){
     this.collapsed = !this.collapsed;
     localStorage.setItem(this.collapsedKey, JSON.stringify(this.collapsed));

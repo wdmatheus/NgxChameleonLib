@@ -11,6 +11,10 @@
 <ng-content></ng-content>
 
 <div class="ch-expand-button">
+
+  <h4 [attr.class]="'ui header ' + expandButtonData?.color" style="text-align: center;" *ngIf="expandButtonData?.text">
+    {{expandButtonData?.text}}
+  </h4>
   <button data-expand="Expandir" data-minimize="Minimizar" (click)="changeState()">
     <svg class="icon minimize" width="20px" height="15px" viewBox="0 0 20 15">
       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -31,4 +35,5 @@
       </g>
     </svg>
   </button>
+
 </div>

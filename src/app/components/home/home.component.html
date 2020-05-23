@@ -2,9 +2,9 @@
 <app-modals></app-modals>
 <app-transictions></app-transictions>
 
-<h2  class="ui teal header">Form search</h2>
+<h2 class="ui teal header">Form search</h2>
 <div ch-grid-row>
-  <div
+    <div
         ch-grid-column
         tablet="16"
         computer="16">
@@ -25,9 +25,7 @@
             (on-search)="search($event)">
             <form [formGroup]="form">
                 <div class="field m-b-20">
-                    <label>
-                        Term
-                    </label>
+                    <label>Term</label>
                     <input
                         type="text"
                         formControlName="term">
@@ -36,4 +34,11 @@
         </div>
     </div>
 
+    <div ch-accordion>
+        <div ch-accordion-title>Teste</div>
+        <div ch-accordion-content>
+            <p>Teste</p>
+        </div>
+
+    </div>
 </div>

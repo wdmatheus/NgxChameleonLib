@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TopBarBreadcrumbService } from 'ngx-chameleon';
+// import { TopBarBreadcrumbService } from 'ngx-chameleon';
 import { FormGroup, FormControl } from '@angular/forms';
+import { TopBarBreadcrumbService } from 'projects/ngx-chameleon/src/public-api';
 
 @Component({
   selector: 'app-home',
