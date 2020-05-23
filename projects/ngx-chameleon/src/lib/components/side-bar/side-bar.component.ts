@@ -29,7 +29,8 @@ export class SideBarComponent implements OnInit  {
 
   @Input('expand-button-data') expandButtonData = {
     text: '',
-    color: 'red'
+    color: 'red',
+    icon: ''
   };
 
   changeState(){
