@@ -1,0 +1,13 @@
+.float-left {
+  float: left;
+  margin-left: auto;
+}
+
+.float-right {
+  float: right;
+  margin-right: auto;
+}
+
+.clear-fix {
+  clear: both;
+}

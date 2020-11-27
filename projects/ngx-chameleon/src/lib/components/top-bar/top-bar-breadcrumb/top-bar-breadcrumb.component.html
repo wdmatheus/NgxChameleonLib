@@ -1,6 +1,6 @@
 <div class="ch-breadcrumb-section active">
   <a [href]="" [title]="title || ''">
-    <i *ngIf="path" [attr.class]="icon">
+    <i *ngIf="path && icon" [attr.class]="icon">
     </i>
     <span *ngIf="path">
       {{path}}

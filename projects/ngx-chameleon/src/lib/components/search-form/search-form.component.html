@@ -1,20 +1,31 @@
-<div class="tiny ui icon buttons" *ngIf="withTooltip; else withoutTooltipTem">
-  <button [attr.class]="'ui ' + color + ' button' + (hidden ? ' basic' : '')" [ngClass]="{'basic': hidden}" (click)="hidden = !hidden" ch-tooltip
-    [content]="hidden ? hiddenSearchBtnTooltip : visibleSearchBtnTooltip" [is-inverted]="tootipIsInverted"
-    [position]="tootipIsInvertedPosition" [is-html]="true">
-    <i class="fas fa-filter"></i>
-  </button>
+<ng-container *ngIf="withTooltip; else withoutTooltipTem">
 
-  <button  [attr.class]="'ui ' + color + ' button basic'" [ngClass]="{'loading': loading}" (click)="search()" ch-tooltip
-    [content]="updateBtnTooltip" [is-inverted]="tootipIsInverted" [is-html]="true"
-    [position]="tootipIsInvertedPosition">
-    <i class="fas fa-sync"></i>
-  </button>
-</div>
+  <div [attr.class]="'tiny ui icon buttons' + defaultSearchBtnPosition">
+    <button [attr.class]="'ui ' + color + ' button' + (hidden ? ' basic' : '')" [ngClass]="{'basic': hidden}"
+      (click)="hidden = !hidden" ch-tooltip [content]="hidden ? hiddenSearchBtnTooltip : visibleSearchBtnTooltip"
+      [is-inverted]="tootipIsInverted" [position]="tootipIsInvertedPosition" [is-html]="true">
+      <i class="fas fa-filter"></i>
+    </button>
+
+    <button [attr.class]="'ui ' + color + ' button basic'" [ngClass]="{'loading': loading}" (click)="search()"
+      ch-tooltip [content]="updateBtnTooltip" [is-inverted]="tootipIsInverted" [is-html]="true"
+      [position]="tootipIsInvertedPosition">
+      <i class="fas fa-sync"></i>
+    </button>
+  </div>
+
+  <!-- <div [attr.class]="extraBtnPosition">
+    <ng-content select="[extra-buttons]"></ng-content>
+  </div> -->
+
+  <div class="clear-fix"></div>
+</ng-container>
 
 <ng-template #withoutTooltipTem>
-  <div class="tiny ui icon buttons">
-    <button [attr.class]="'ui ' + color + ' button' + (hidden ? ' basic' : '')" [ngClass]="{'basic': hidden}" (click)="hidden = !hidden">
+
+  <div [attr.class]="'tiny ui icon buttons ' + defaultSearchBtnPosition">
+    <button [attr.class]="'ui ' + color + ' button' + (hidden ? ' basic' : '')" [ngClass]="{'basic': hidden}"
+      (click)="hidden = !hidden">
       <i class="fas fa-filter"></i>
     </button>
 
@@ -22,6 +33,13 @@
       <i class="fas fa-sync"></i>
     </button>
   </div>
+
+  <div [attr.class]="extraBtnPosition">
+    <ng-content select="[extra-buttons]"></ng-content>
+  </div>
+
+  <div class="clear-fix"></div>
+
 </ng-template>
 
 <ch-transiction-fade [hidden]="hidden">

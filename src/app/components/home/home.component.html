@@ -8,10 +8,10 @@
         ch-grid-column
         tablet="16"
         computer="16">
-        <div
+        <div ch-search-form
+            searchBtnPosition="right"
             class="row m-b-30"
-            ch-search-form
-            [with-tooltip]="true"
+            [with-tooltip]="false"
             color="purple"
             [hidden]="true"
             [loading]="loading"
@@ -31,6 +31,17 @@
                         formControlName="term">
                 </div>
             </form>
+            <div extra-buttons>
+              <button class="ui teal basic button m-r-20">
+                Extra button 1
+              </button>
+              <button class="ui violet basic button  m-r-20">
+                Extra button 2
+              </button>
+              <button class="ui violet basic button  m-r-20">
+                Extra button 3
+              </button>
+            </div>
         </div>
     </div>
 
