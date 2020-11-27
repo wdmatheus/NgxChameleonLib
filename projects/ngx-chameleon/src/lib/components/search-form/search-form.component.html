@@ -14,11 +14,7 @@
     </button>
   </div>
 
-  <!-- <div [attr.class]="extraBtnPosition">
-    <ng-content select="[extra-buttons]"></ng-content>
-  </div> -->
 
-  <div class="clear-fix"></div>
 </ng-container>
 
 <ng-template #withoutTooltipTem>
@@ -34,14 +30,12 @@
     </button>
   </div>
 
-  <div [attr.class]="extraBtnPosition">
-    <ng-content select="[extra-buttons]"></ng-content>
-  </div>
-
-  <div class="clear-fix"></div>
-
 </ng-template>
+<div [attr.class]="extraBtnPosition">
+  <ng-content select="[extra-buttons]"></ng-content>
+</div>
 
+<div class="clear-fix"></div>
 <ch-transiction-fade [hidden]="hidden">
   <div class="ui form">
     <h4 class="ui dividing header"></h4>
