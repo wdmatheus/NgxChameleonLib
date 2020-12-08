@@ -47,7 +47,6 @@ export class SearchFormComponent implements OnInit, OnChanges {
   }
 
   get extraBtnPosition(): string {
-    console.log(this.searchBtnPosition);
     switch (this.searchBtnPosition) {
       case 'left':
         return 'float-right';

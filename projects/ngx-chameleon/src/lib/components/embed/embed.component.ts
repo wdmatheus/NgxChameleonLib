@@ -22,7 +22,6 @@ export class EmbedComponent implements OnInit, AfterViewInit {
   }
   @Input('url') set url(value: string) {
     this._url = value;
-    console.log(this.url);
     this.initialize();
   }
 

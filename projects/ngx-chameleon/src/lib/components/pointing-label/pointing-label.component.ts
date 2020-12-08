@@ -36,8 +36,6 @@ export class PointingLabelComponent implements OnInit {
       default:
         this.cssClass = `ui pointing ${this.color} basic label`;
     }
-
-    console.log(this.position);
   }
 
 }
