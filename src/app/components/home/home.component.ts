@@ -14,9 +14,30 @@ export class HomeComponent implements OnInit {
     private topBarBreadcrumbService: TopBarBreadcrumbService) { }
 
   ngOnInit() {
+    // this.topBarBreadcrumbService.emmiter.emit({
+    //   title: 'NgxChameleon',
+    //   icon: 'fal fa-home fa-icon',
+    //   path: ['NgxChameleon', 'Home']
+    // });
     this.topBarBreadcrumbService.emmiter.emit({
       icon: 'fal fa-home fa-icon',
-      path: ['NgxChameleon', 'Home']
+      paths: [ {
+        route: '/home',
+        title: 'Home',
+        active: true
+      },{
+        route: '/home/path1',
+        title: 'Path 1',
+        active: false
+      },{
+        route: '/home/path2',
+        title: 'Path 2',
+        active: false
+      },{
+        route: '/home/path3',
+        title: 'Path 3',
+        active: false
+      }]
     });
   }
 

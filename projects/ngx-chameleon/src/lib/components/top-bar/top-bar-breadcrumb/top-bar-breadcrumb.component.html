@@ -1,9 +1,25 @@
-<div class="ch-breadcrumb-section active">
-  <a [href]="" [title]="title || ''">
-    <i *ngIf="path && icon" [attr.class]="icon">
-    </i>
-    <span *ngIf="path">
-      {{path}}
-    </span>
-  </a>
-</div>
+<ng-container *ngIf="paths.length === 0">
+  <div class="ch-breadcrumb-section active">
+    <a [href]="" [title]="title || ''">
+      <i *ngIf="path && icon" [attr.class]="icon">
+      </i>
+      <span *ngIf="path">
+        {{path}}
+      </span>
+    </a>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="paths.length > 0">
+
+  <div class="ch-breadcrumb-section" *ngFor="let item of paths; let i = index" [ngClass]="{'active': item.active}">
+    <a [href]="" [title]="item.title || ''" [routerLink]="item.route">
+      <i *ngIf="icon && i == 0" [attr.class]="icon">
+      </i>
+      <span *ngIf="i > 0" class="m-r-10 m-l-5">/</span>
+      <span>
+        {{item.title}}
+      </span>
+    </a>
+  </div>
+</ng-container>

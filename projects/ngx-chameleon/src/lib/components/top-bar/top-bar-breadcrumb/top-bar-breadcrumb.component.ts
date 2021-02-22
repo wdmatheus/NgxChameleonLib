@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { TopBarBreadcrumbService } from './top-bar-breadcrumb.service';
-import { TopBarBreadcrumbOptions } from './top-bar-breadcrumb.options';
+import { TopBarBreadcrumbOptions, TopBarBreadcrumbPath } from './top-bar-breadcrumb.options';
 import { takeWhile } from 'rxjs/operators';
 
 @Component({
@@ -12,23 +12,25 @@ export class TopBarBreadcrumbComponent implements OnInit, OnDestroy {
 
   constructor(private elementRef: ElementRef,
     private service: TopBarBreadcrumbService) {
-      this.service.emmiter.subscribe((options:TopBarBreadcrumbOptions) => {
-        options = options || {
-          icon: null,
-          path: null,
-          title: null
-        };
-        this.icon = options.icon;
-        this.title = options.title;
-        this.path = this.handlePath(options.path);
-      });
-    }
+    this.service.emmiter.subscribe((options: TopBarBreadcrumbOptions) => {
+      options = options || {
+        icon: null,
+        path: null,
+        title: null,
+        paths: []
+      };
+      this.icon = options.icon || '';
+      this.title = options.title || '';
+      this.paths = options.paths || [];
+      this.path = this.handlePath(options.path);
+    });
+  }
 
   ngOnInit() {
     (this.elementRef.nativeElement as HTMLElement).className = 'ch-breadcrumb';
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.isAlive = false;
   }
 
@@ -40,11 +42,13 @@ export class TopBarBreadcrumbComponent implements OnInit, OnDestroy {
 
   path: string;
 
-  private handlePath(path?: string[]): string{
-    if(!path){
+  paths: TopBarBreadcrumbPath[] = [];
+
+  private handlePath(path?: string[]): string {
+    if (!path) {
       return '';
     }
-    if(path.length === 0) {
+    if (path.length === 0) {
       return '';
     }
     return path.join(' / ');
