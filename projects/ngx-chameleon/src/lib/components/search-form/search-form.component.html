@@ -2,7 +2,7 @@
 
   <div [attr.class]="'tiny ui icon buttons' + defaultSearchBtnPosition">
     <button [attr.class]="'ui ' + color + ' button' + (hidden ? ' basic' : '')" [ngClass]="{'basic': hidden}"
-      (click)="hidden = !hidden" ch-tooltip [content]="hidden ? hiddenSearchBtnTooltip : visibleSearchBtnTooltip"
+      (click)="toggle($event)" ch-tooltip [content]="hidden ? hiddenSearchBtnTooltip : visibleSearchBtnTooltip"
       [is-inverted]="tootipIsInverted" [position]="tootipIsInvertedPosition" [is-html]="true">
       <i class="fas fa-filter"></i>
     </button>
@@ -21,7 +21,7 @@
 
   <div [attr.class]="'tiny ui icon buttons ' + defaultSearchBtnPosition">
     <button [attr.class]="'ui ' + color + ' button' + (hidden ? ' basic' : '')" [ngClass]="{'basic': hidden}"
-      (click)="hidden = !hidden">
+    (click)="toggle($event)">
       <i class="fas fa-filter"></i>
     </button>
 
