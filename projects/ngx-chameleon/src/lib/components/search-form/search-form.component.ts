@@ -35,12 +35,25 @@ export class SearchFormComponent implements OnInit, OnChanges {
   @Output('on-clear') onClear: EventEmitter<any> = new EventEmitter<any>();
   @Output('on-search') onSearch: EventEmitter<any> = new EventEmitter<any>();
 
-  @Input('hidden') hidden: boolean = true;
+  @Output() onChange: EventEmitter<any> = new EventEmitter();
+
+  hidden: boolean = true;
 
   @Input('searchBtnPosition') searchBtnPosition = 'left';
 
   clear = () => this.onClear.emit();
   search = () => this.onSearch.emit();
+
+  toggle(event: Event) {
+  
+    this.hidden = !this.hidden;
+  
+    this.onChange.emit({
+      originalEvent: event,
+      hidden: this.hidden
+    });
+  
+  }
 
   get defaultSearchBtnPosition(): string {
     return this.searchBtnPosition === 'right' ? 'float-right' : 'float-left';
