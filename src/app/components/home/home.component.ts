@@ -24,19 +24,18 @@ export class HomeComponent implements OnInit {
       paths: [ {
         route: '/home',
         title: 'Home',
-        active: true
+        active: false
       },{
         route: '/home/path1',
         title: 'Path 1',
         active: false
       },{
-        route: '/home/path2',
+        route: '/home/path1/path2',
         title: 'Path 2',
         active: false
       },{
-        route: '/home/path3',
         title: 'Path 3',
-        active: false
+        active: true
       }]
     });
   }

@@ -1,25 +1,45 @@
 <ng-container *ngIf="paths.length === 0">
   <div class="ch-breadcrumb-section active">
     <a [href]="" [title]="title || ''">
-      <i *ngIf="path && icon" [attr.class]="icon">
-      </i>
+      <i *ngIf="path && icon" [attr.class]="icon"> </i>
       <span *ngIf="path">
-        {{path}}
+        {{ path }}
       </span>
     </a>
   </div>
 </ng-container>
 
 <ng-container *ngIf="paths.length > 0">
-
-  <div class="ch-breadcrumb-section" *ngFor="let item of paths; let i = index" [ngClass]="{'active': item.active}">
-    <a [href]="" [title]="item.title || ''" [routerLink]="item.route">
-      <i *ngIf="icon && i == 0" [attr.class]="icon">
-      </i>
-      <span *ngIf="i > 0" class="m-r-10 m-l-5">/</span>
-      <span>
-        {{item.title}}
-      </span>
+  <div
+    class="ch-breadcrumb-section"
+    *ngFor="let item of paths; let i = index"
+    [ngClass]="{ active: item.active }"
+  >
+    <a
+      [title]="item.title || ''"
+      [routerLink]="item.route"
+      *ngIf="item.route; else noNavigation"
+    >
+      <ng-template
+        [ngTemplateOutlet]="tplItem"
+        [ngTemplateOutletContext]="{ $implicit: { item: item, i: i } }"
+      ></ng-template>
     </a>
+    <ng-template #noNavigation>
+      <a [title]="item.title || ''" [href]="">
+        <ng-template
+          [ngTemplateOutlet]="tplItem"
+          [ngTemplateOutletContext]="{ $implicit: { item: item, i: i } }"
+        ></ng-template>
+      </a>
+    </ng-template>
   </div>
 </ng-container>
+
+<ng-template #tplItem let-data>
+  <i *ngIf="icon && data.i == 0" [attr.class]="icon"> </i>
+  <span *ngIf="data.i > 0" class="m-r-10 m-l-5">/</span>
+  <span>
+    {{ data.item.title }}
+  </span>
+</ng-template>

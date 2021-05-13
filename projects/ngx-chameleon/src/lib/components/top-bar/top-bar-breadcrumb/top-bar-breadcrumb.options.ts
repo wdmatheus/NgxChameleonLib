@@ -8,7 +8,7 @@ interface TopBarBreadcrumbOptions {
 
 interface TopBarBreadcrumbPath {
   title: string,
-  route: string,
+  route?: string,
   active: boolean
 }
 
