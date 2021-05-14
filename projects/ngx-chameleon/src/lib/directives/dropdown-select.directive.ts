@@ -14,12 +14,12 @@ export class DropdownSelect implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-    (this.element.nativeElement as HTMLElement).classList.add('ui', 'dropdown');
+    (this.element.nativeElement as HTMLElement).classList.add('ui', 'search', 'selection', 'dropdown');
     if (this.ngControl) {
       this.ngControl.valueChanges.pipe(
         takeWhile(() => this.isAlive)
       ).subscribe(value => {
-        if(!this.cleared && (!value || (value instanceof Array && value.length == 0))){
+        if (!this.cleared && (!value || (value instanceof Array && value.length == 0))) {
           setTimeout(() => $(this.element.nativeElement.parentElement).dropdown('clear'));
           this.cleared = true;
           return;
@@ -28,7 +28,7 @@ export class DropdownSelect implements OnInit, AfterViewInit, OnDestroy {
       });
     }
 
-   }
+  }
 
   ngAfterViewInit() {
     this.initialize();
@@ -42,11 +42,15 @@ export class DropdownSelect implements OnInit, AfterViewInit, OnDestroy {
 
   private isAlive: boolean = true;
 
-  private initialize(){
-    $(this.element.nativeElement).dropdown();
+  private initialize() {
+    $(this.element.nativeElement).dropdown({
+      ignoreCase: true,
+      match: 'text',
+      fullTextSearch: true
+    });
   }
 
-  private clear(){
+  private clear() {
     $(this.element.nativeElement.parentElement).dropdown("clear");
   }
 }

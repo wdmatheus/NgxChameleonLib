@@ -15,9 +15,5 @@
   "bugs": {
     "url": "https://github.com/wdmatheus/NgxChameleonLib/issues"
   },
-  "version": "1.7.3",
-  "peerDependencies": {
-    "@angular/common": "~9.1.9",
-    "@angular/core": "~9.1.9"
-  }
+  "version": "1.7.4"
 }
