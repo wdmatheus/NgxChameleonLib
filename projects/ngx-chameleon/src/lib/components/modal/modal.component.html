@@ -1,12 +1,16 @@
 <div [id]="modalId" [attr.class]="modalClass">
   <i *ngIf="showCloseBtn" class="close icon"></i>
-  <div class="header" *ngIf="showHeader">
-    {{title || ''}}
+  <div class="header">
+    {{title}}
   </div>
   <div [attr.class]="contentClass">
     <ng-content>
 
     </ng-content>
   </div>
-
+  <div class="actions actions-modal">
+    <ng-content #actions select="[actions]"></ng-content>
+  </div>
 </div>
+
+
