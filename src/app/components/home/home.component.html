@@ -8,12 +8,13 @@
         ch-grid-column
         tablet="16"
         computer="16">
+
         <div ch-search-form
             searchBtnPosition="left"
             class="row m-b-30"
-            [with-tooltip]="false"
+            [with-tooltip]="true"
             color="purple"
-            [hidden]="true"
+            [hidden]="false"
             [loading]="loading"
             [searchBtnText]="'Search'"
             [clearBtnText]="'Clear'"
@@ -32,24 +33,24 @@
                 </div>
             </form>
             <div extra-buttons>
-              <button class="ui teal basic button m-r-20">
+              <button class="ui teal basic button m-r-20" ch-tooltip content="Extra Button 1" [is-html]="true">
                 Extra button 1
               </button>
-              <button class="ui violet basic button  m-r-20">
+              <button class="ui violet basic button  m-r-20" ch-tooltip content="Extra Button 2" [is-html]="true">
                 Extra button 2
               </button>
-              <button class="ui violet basic button  m-r-20">
+              <button class="ui violet basic button  m-r-20" ch-tooltip content="Extra Button 3" [is-html]="true">
                 Extra button 3
               </button>
             </div>
         </div>
     </div>
 
-    <div ch-accordion>
+    <!-- <div ch-accordion>
         <div ch-accordion-title>Teste</div>
         <div ch-accordion-content>
             <p>Teste</p>
         </div>
 
-    </div>
+    </div> -->
 </div>
