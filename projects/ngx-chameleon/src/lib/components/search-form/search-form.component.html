@@ -1,5 +1,4 @@
 <ng-container *ngIf="withTooltip; else withoutTooltipTem">
-  <p>com tooltip</p>
   <div [attr.class]="'tiny ui icon buttons ' + defaultSearchBtnPosition">
     <button [attr.class]="'ui ' + color + ' button' + (hidden ? ' basic' : '')" [ngClass]="{'basic': hidden}"
       (click)="toggle($event)" ch-tooltip [content]="hidden ? hiddenSearchBtnTooltip : visibleSearchBtnTooltip"
@@ -18,7 +17,6 @@
 </ng-container>
 
 <ng-template #withoutTooltipTem>
-  <p>sem tooltip</p>
   <div [attr.class]="'tiny ui icon buttons ' + defaultSearchBtnPosition">
     <button [attr.class]="'ui ' + color + ' button' + (hidden ? ' basic' : '')" [ngClass]="{'basic': hidden}"
     (click)="toggle($event)">
