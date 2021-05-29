@@ -31,13 +31,14 @@ export class SearchFormComponent implements OnInit, OnChanges {
   @Input('tootipIsInvertedPosition') tootipIsInvertedPosition: string = 'top left';
   @Input('with-tooltip') withTooltip: boolean = false;
   @Input('color') color: string = 'blue';
+  @Input('is-hidden') hidden: boolean = true;
 
   @Output('on-clear') onClear: EventEmitter<any> = new EventEmitter<any>();
   @Output('on-search') onSearch: EventEmitter<any> = new EventEmitter<any>();
 
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
-  hidden: boolean = true;
+
 
   @Input('searchBtnPosition') searchBtnPosition = 'left';
 
@@ -45,14 +46,14 @@ export class SearchFormComponent implements OnInit, OnChanges {
   search = () => this.onSearch.emit();
 
   toggle(event: Event) {
-  
+
     this.hidden = !this.hidden;
-  
+
     this.onChange.emit({
       originalEvent: event,
       hidden: this.hidden
     });
-  
+
   }
 
   get defaultSearchBtnPosition(): string {
