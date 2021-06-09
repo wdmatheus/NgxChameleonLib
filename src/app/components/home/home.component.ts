@@ -26,11 +26,12 @@ export class HomeComponent implements OnInit {
         title: 'Home',
         active: false
       },{
-        route: '/home/path1',
+        route: ['/home', {id: 'teste 123'}],
         title: 'Path 1',
         active: false
       },{
-        route: '/home/path1/path2',
+        route: '/home',
+        queryParams: {id: 'teste'},
         title: 'Path 2',
         active: false
       },{

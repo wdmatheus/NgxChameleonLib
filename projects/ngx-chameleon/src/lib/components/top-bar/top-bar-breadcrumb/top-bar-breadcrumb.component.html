@@ -18,6 +18,7 @@
     <a
       [title]="item.title || ''"
       [routerLink]="item.route"
+      [queryParams]="item.queryParams"
       *ngIf="item.route; else noNavigation"
     >
       <ng-template
