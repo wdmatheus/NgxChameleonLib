@@ -1,27 +1,56 @@
 <div class="ch-loader-progress"></div>
-<div ch-side-bar [expand-button-data]="{text: 'Versão 1.7.5', color: 'teal', icon: 'fas fa-sort-numeric-up'}" app-name="NgxChameleon" logo-url="assets/logo.png">
-  <ch-side-bar-menu >
-
-    <ch-side-bar-link [route]="['/home']" icon="fal fa-home fa-icon" description="Home">
+<div
+  ch-side-bar
+  [expand-button-data]="{
+    text: 'Versão 1.7.5',
+    color: 'teal',
+    icon: 'fas fa-sort-numeric-up'
+  }"
+  app-name=""
+  logo-url="assets/logo.png"
+  [logo-options]="{
+    default:{
+      url: 'assets/ch-logo.png',
+      width: 200,
+      height: 54
+    },
+    brand:{
+      url: 'assets/ch-logo-brand.png',
+      width: 36,
+      height: 36
+    }
+  }"
+>
+  <ch-side-bar-menu>
+    <ch-side-bar-link
+      [route]="['/home']"
+      icon="fal fa-home fa-icon"
+      description="Home"
+    >
     </ch-side-bar-link>
-    <ch-side-bar-link [has-children]="true" icon="fas fa-list fa-icon" description="submenu">
-      <ch-side-bar-link [route]="['/account']" icon="fas fa-id-card-alt fa-icon" description="Account">
+    <ch-side-bar-link
+      [has-children]="true"
+      icon="fas fa-list fa-icon"
+      description="submenu"
+    >
+      <ch-side-bar-link
+        [route]="['/account']"
+        icon="fas fa-id-card-alt fa-icon"
+        description="Account"
+      >
       </ch-side-bar-link>
     </ch-side-bar-link>
-
-
-
   </ch-side-bar-menu>
 </div>
 
 <div class="ch-content">
-
   <header ch-top-bar>
     <ch-top-bar-menu>
-
       <button class="ch-header-nav-button" (click)="dialogAccounts.open()">
         Select an account
-        <i class="ch-notification-label fal fa-chevron-down fa-icon dropdown"></i>
+        <i
+          class="ch-notification-label fal fa-chevron-down fa-icon dropdown"
+        ></i>
       </button>
 
       <div class="ch-header-nav-button ch-dropdown ch-user" href="#">
@@ -31,8 +60,9 @@
         <div class="ch-dropdown-content bottom right" tabindex="-1">
           <div class="ch-user-container">
             <div class="ch-user-header">
-              <img class="avatar" src="assets/avatar.png">
-              <div class="info"><strong class="name">Void</strong>
+              <img class="avatar" src="assets/avatar.png" />
+              <div class="info">
+                <strong class="name">Void</strong>
                 <div class="email">void@gmail.com</div>
               </div>
             </div>
@@ -45,16 +75,13 @@
             <div class="ch-user-action">
               <a [href]="">
                 <i class="fal fa-sign-out fa-icon"></i>
-                <span class="label">
-                  Logout
-                </span>
+                <span class="label"> Logout </span>
               </a>
             </div>
           </div>
         </div>
       </div>
     </ch-top-bar-menu>
-
   </header>
 
   <div class="ui padded grid stackable">
@@ -64,13 +91,16 @@
   </div>
 </div>
 
-<ch-dialog #dialogAccounts [title-is-html]="true" [title]="'<strong>My Accounts</strong>'" [close-on-click]="true">
+<ch-dialog
+  #dialogAccounts
+  [title-is-html]="true"
+  [title]="'<strong>My Accounts</strong>'"
+  [close-on-click]="true"
+>
   <div class="ui divided selection list items">
     <div class="item ch-dialog-message unread">
       <div class="content account-item" (click)="dialogAccounts.close()">
-        <h3 class="header">
-          Account A
-        </h3>
+        <h3 class="header">Account A</h3>
         <div class="description">
           <small>Some id for account A</small>
         </div>
@@ -78,9 +108,7 @@
     </div>
     <div class="item ch-dialog-message unread">
       <div class="content account-item">
-        <h3 class="header">
-          Account B
-        </h3>
+        <h3 class="header">Account B</h3>
         <div class="description">
           <small>Some id for account B</small>
         </div>

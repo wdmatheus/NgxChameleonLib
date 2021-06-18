@@ -1,8 +1,8 @@
 <div class="ch-logo">
     <div
         class="ch-logo-icon"
-        *ngIf="logoUrl">
-        <img [src]="logoUrl">
+        [ngStyle]="{'width': logo?.width + 'px', 'height':  logo?.height + 'px'}">
+        <img [ngStyle]="{'maxWidth':  logo?.width + 'px', 'maxHeight':  logo?.height + 'px'}" [src]=" logo?.url || (logoUrl || '')">
     </div>
     <a
         [href]="appUrl || ''"
