@@ -1,4 +1,5 @@
-import { Component, OnInit, ElementRef, Input, HostBinding } from '@angular/core';
+import { AfterContentChecked } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, HostBinding, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { LogoData, LogoOptions } from './logo-options';
 
 @Component({
@@ -6,9 +7,11 @@ import { LogoData, LogoOptions } from './logo-options';
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.css']
 })
-export class SideBarComponent implements OnInit {
+export class SideBarComponent implements OnInit, AfterViewInit, AfterContentChecked {
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(
+    private elementRef: ElementRef,
+    private cdref: ChangeDetectorRef) { }
 
   private readonly collapsedKey: string = 'ch-nav-state';
 
@@ -17,6 +20,7 @@ export class SideBarComponent implements OnInit {
     let collapsed = localStorage.getItem(this.collapsedKey);
 
     if (collapsed) this.collapsed = JSON.parse(collapsed);
+    this.isCollapsed = this.collapsed;
 
     (this.elementRef.nativeElement as HTMLElement).classList.add('ch-nav');
 
@@ -24,23 +28,60 @@ export class SideBarComponent implements OnInit {
       (this.elementRef.nativeElement as HTMLElement).classList.add('collapsed');
   }
 
+  ngAfterViewInit() {
+
+    this.changes = new MutationObserver((mutations: MutationRecord[]) => {
+      mutations.forEach((mutation: MutationRecord) => {
+        const classList = (mutation.target as HTMLElement).classList;
+
+        if(classList.contains('collapsed') && classList.contains('hover')){
+          this.isCollapsed = false;
+          return;
+        }
+        if(classList.contains('collapsed')){
+          this.isCollapsed = true;
+          return;
+        }
+        this.isCollapsed = false;
+      });
+    }
+    );
+
+    this.changes.observe(this.elementRef.nativeElement, {
+      attributes: true,
+      childList: true,
+      characterData: true
+    });
+  }
+
+  ngAfterContentChecked() {
+
+    this.cdref.detectChanges();
+
+  }
+
+  private changes: MutationObserver;
+
   private collapsed: boolean = false;
 
+  private isCollapsed = false;
+
   @Input('app-name') appName: string = '';
+
   @Input('app-url') appUrl: string = '';
 
   _logoOptions: LogoOptions;
-  get logoOptions():LogoOptions{
+  get logoOptions(): LogoOptions {
     return this._logoOptions;
   }
-  @Input('logo-options') set logoOptions(value: LogoOptions){
+  @Input('logo-options') set logoOptions(value: LogoOptions) {
 
     let defaultLogo = value && value.default
       ? value.default
       : {
-          url: null,
-          height: 36,
-          width: 36
+        url: null,
+        height: 36,
+        width: 36
       };
 
     defaultLogo = {
@@ -53,9 +94,9 @@ export class SideBarComponent implements OnInit {
     let brandLogo = value && value.brand
       ? value.brand
       : {
-          url: null,
-          height: 36,
-          width: 36
+        url: null,
+        height: 36,
+        width: 36
       };
 
     brandLogo = {
@@ -83,8 +124,8 @@ export class SideBarComponent implements OnInit {
   get logoUrl(): string {
     return this._logoUrl
   }
-  get logo():LogoData{
-    return this.collapsed ? this.logoOptions?.brand  : this.logoOptions?.default;
+  get logo(): LogoData {
+    return this.isCollapsed ? this.logoOptions?.brand : this.logoOptions?.default;
   }
 
 
