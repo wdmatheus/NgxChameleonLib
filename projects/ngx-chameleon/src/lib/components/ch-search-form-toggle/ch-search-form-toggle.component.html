@@ -1,0 +1,74 @@
+<div [attr.class]="'tiny ui icon buttons ' + topBtnsPosition">
+
+  <button [attr.class]="'ui ' + options.topShowHideButton.color + ' button' + (hidden ? ' basic' : '')"
+    [ngClass]="{'basic': hidden}"
+    (click)="toggle($event)"
+    ch-tooltip
+    [content]="hidden ? (options.topShowHideButton.tooltip?.hiddenText || null) : (options.topShowHideButton.tooltip?.visibleText || null)"
+    [is-inverted]="options.topShowHideButton.tooltip?.isInverted"
+    [position]="options.topShowHideButton.tooltip?.position || defaultTooltipPosition"
+    [is-html]="(options.topShowHideButton.tooltip?.isHtml)">
+    <i [attr.class]="options.topShowHideButton.icon"></i>
+    <span>
+      {{ (hidden ? options.topShowHideButton.hiddenText : options.topShowHideButton.visibleText) || '' }}
+    </span>
+  </button>
+
+  <button [attr.class]="'ui ' + options.topSearchButton.color + ' button basic'"
+    [ngClass]="{'loading': loading}"
+    (click)="search()"
+    ch-tooltip
+    [content]="hidden ? (options.topSearchButton.tooltip?.hiddenText || null) : (options.topSearchButton.tooltip?.visibleText || null)"
+    [is-inverted]="options.topSearchButton.tooltip?.isInverted"
+    [position]="options.topSearchButton.tooltip?.position || defaultTooltipPosition"
+    [is-html]="(options.topSearchButton.tooltip?.isHtml)">
+    <i [attr.class]="options.topSearchButton.icon"></i>
+    <span>
+      {{ (hidden ? options.topSearchButton.hiddenText : options.topSearchButton.visibleText) || '' }}
+    </span>
+  </button>
+</div>
+
+<div [attr.class]="extraBtnPosition">
+  <ng-content select="[extra-buttons]"></ng-content>
+</div>
+
+<div class="clear-fix"></div>
+
+<ch-transiction-fade [hidden]="hidden">
+  <div class="ui form">
+    <h4 class="ui dividing header"></h4>
+    <ng-content></ng-content>
+    <div>
+
+      <button [attr.class]="'ui ' + options.bottomClearButton.color + ' basic button'"
+        ch-tooltip
+        [content]="hidden ? (options.bottomClearButton.tooltip?.hiddenText || null) : (options.bottomClearButton.tooltip?.visibleText || null)"
+        [is-inverted]="options.bottomClearButton.tooltip?.isInverted"
+        [position]="options.bottomClearButton.tooltip?.position || defaultTooltipPosition"
+        [is-html]="(options.bottomClearButton.tooltip?.isHtml)"
+        (click)="clear()">
+        <i [attr.class]="options.bottomClearButton.icon"></i>
+        <span>
+          {{ (hidden ? options.bottomClearButton.hiddenText : options.bottomClearButton.visibleText)
+          || '' }}
+        </span>
+      </button>
+
+      <button [attr.class]="'ui ' + options.bottomSearchButton.color + ' basic button'"
+        ch-tooltip
+        [content]="hidden ? (options.bottomSearchButton.tooltip?.hiddenText || null) : (options.bottomSearchButton.tooltip?.visibleText || null)"
+        [is-inverted]="options.bottomSearchButton.tooltip?.isInverted"
+        [position]="options.bottomSearchButton.tooltip?.position || defaultTooltipPosition"
+        [is-html]="(options.bottomSearchButton.tooltip?.isHtml)"
+        (click)="search()">
+        <i [attr.class]="options.bottomSearchButton.icon"></i>
+        <span>
+          {{ (hidden ? options.bottomSearchButton.hiddenText : options.bottomSearchButton.visibleText) || '' }}
+        </span>
+      </button>
+
+    </div>
+    <h4 class="ui dividing header"></h4>
+  </div>
+</ch-transiction-fade>

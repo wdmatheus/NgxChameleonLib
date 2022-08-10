@@ -4,53 +4,132 @@
 
 <h2 class="ui teal header">Form search</h2>
 <div ch-grid-row>
-    <div
-        ch-grid-column
-        tablet="16"
-        computer="16">
+  <div ch-grid-column
+    tablet="16"
+    computer="16">
 
-        <div ch-search-form
-            searchBtnPosition="left"
-            class="row m-b-30"
-            [with-tooltip]="true"
-            color="purple"
-            [is-hidden]="false"
-            [loading]="loading"
-            [searchBtnText]="'Search'"
-            [clearBtnText]="'Clear'"
-            [hiddenSearchBtnTooltip]="'Hidden tooltip'"
-            [visibleSearchBtnTooltip]="'Visible tooltip'"
-            [updateBtnTooltip]="'Update tooltip'"
-            [updateBtnTooltip]="''"
-            (on-clear)="clear($event)"
-            (on-search)="search($event)">
-            <form [formGroup]="form">
-                <div class="field m-b-20">
-                    <label>Term</label>
-                    <input
-                        type="text"
-                        formControlName="term">
-                </div>
-            </form>
-            <div extra-buttons>
-              <button class="ui teal basic button m-r-20" ch-tooltip content="Extra Button 1" [is-html]="true">
-                Extra button 1
-              </button>
-              <button class="ui violet basic button  m-r-20" ch-tooltip content="Extra Button 2" [is-html]="true">
-                Extra button 2
-              </button>
-              <button class="ui violet basic button  m-r-20" ch-tooltip content="Extra Button 3" [is-html]="true">
-                Extra button 3
-              </button>
-            </div>
+    <div ch-search-form
+      searchBtnPosition="left"
+      class="row m-b-30"
+      [with-tooltip]="true"
+      color="purple"
+      [is-hidden]="false"
+      [loading]="loading"
+      [searchBtnText]="'Search'"
+      [clearBtnText]="'Clear'"
+      [hiddenSearchBtnTooltip]="'Hidden tooltip'"
+      [visibleSearchBtnTooltip]="'Visible tooltip'"
+      [updateBtnTooltip]="'Update tooltip'"
+      [updateBtnTooltip]="''"
+      (on-clear)="clear($event)"
+      (on-search)="search($event)">
+      <form [formGroup]="form">
+        <div class="field m-b-20">
+          <label>Term</label>
+          <input type="text"
+            formControlName="term">
         </div>
+      </form>
+      <div extra-buttons>
+        <button class="ui teal basic button m-r-20"
+          ch-tooltip
+          content="Extra Button 1"
+          [is-html]="true">
+          Extra button 1
+        </button>
+        <button class="ui violet basic button  m-r-20"
+          ch-tooltip
+          content="Extra Button 2"
+          [is-html]="true">
+          Extra button 2
+        </button>
+        <button class="ui violet basic button  m-r-20"
+          ch-tooltip
+          content="Extra Button 3"
+          [is-html]="true">
+          Extra button 3
+        </button>
+      </div>
     </div>
+  </div>
 
-    <!-- <div ch-accordion>
+  <!-- <div ch-accordion>
         <div ch-accordion-title>Teste</div>
         <div ch-accordion-content>
             <p>Teste</p>
         </div>
 
     </div> -->
+</div>
+
+
+<h2 class="ui teal header">Form search 2</h2>
+<div ch-grid-row>
+  <div ch-grid-column
+    tablet="16"
+    computer="16">
+
+    <div ch-search-form-toggle
+      [is-hidden]="true"
+      [loading]="loading"
+      [options]="{
+        hidden: true,
+        loading: loading,
+        topBtnsPosition: 'left',
+
+        topShowHideButton:{
+          color: 'purple',
+          hiddenText: 'Expandir',
+          visibleText: 'Ocultar',
+          icon: 'fas fa-home',
+          tooltip:{
+            isInverted: true,
+            hiddenText: 'Expandir',
+            visibleText: 'Ocultar',
+            position: 'top left',
+            isHtml: false
+          }
+        },
+
+        topSearchButton:{
+          color: 'pink',
+          hiddenText: 'Buscar',
+          visibleText: 'Buscar',
+          icon: 'fas fa-search-plus'
+        },
+
+        bottomClearButton:{
+          color: 'red',
+          hiddenText: 'Limpar',
+          visibleText: 'Limpar',
+          icon: 'fas fa-ban fa-icon'
+        },
+
+        bottomSearchButton:{
+          color: 'primary',
+          hiddenText: 'Pesquisar',
+          visibleText: 'Pesquisar',
+          icon: 'fas fa-search-minus fa-icon'
+        }
+      }"
+      (on-clear)="clear($event)"
+      (on-search)="search($event)">
+      <form [formGroup]="form">
+        <div class="field m-b-20">
+          <label>Term</label>
+          <input type="text"
+            formControlName="term">
+        </div>
+      </form>
+      <div extra-buttons>
+        <button class="ui teal basic button m-r-20"
+          ch-tooltip
+          content="Extra Button 1"
+          [is-html]="true">
+          Extra button 1
+        </button>
+      </div>
+    </div>
+  </div>
+
 </div>
