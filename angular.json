@@ -147,7 +147,6 @@
       }
     }
   },
-  "defaultProject": "NgxChameleonLib",
   "cli": {
     "analytics": false
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import { TopBarBreadcrumbService } from 'ngx-chameleon';
-import { FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { TopBarBreadcrumbService } from 'projects/ngx-chameleon/src/public-api';
 
 @Component({
@@ -43,8 +43,8 @@ export class HomeComponent implements OnInit {
 
   loading = false;
 
-  form = new FormGroup({
-    term: new FormControl('')
+  form = new UntypedFormGroup({
+    term: new UntypedFormControl('')
   });
 
   clear($event){

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-validation',
@@ -13,14 +13,14 @@ export class FormValidationComponent implements OnInit {
   ngOnInit() {
   }
 
-  form = new FormGroup({
-    email: new FormControl('', Validators.compose([
+  form = new UntypedFormGroup({
+    email: new UntypedFormControl('', Validators.compose([
       Validators.required,
       Validators.email
     ])),
-    name: new FormControl('', Validators.required),
-    profile: new FormControl('', Validators.required),
-    active: new FormControl(false)
+    name: new UntypedFormControl('', Validators.required),
+    profile: new UntypedFormControl('', Validators.required),
+    active: new UntypedFormControl(false)
   });
 
   submited = false;
