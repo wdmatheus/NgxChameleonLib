@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, EventEmitter } from '@angular/core';
 import { AlertOptions } from './alert.options';
-declare const $:any;
+declare const $: any;
 @Component({
   selector: 'ch-alert',
   templateUrl: './alert.component.html',
@@ -8,7 +8,7 @@ declare const $:any;
 })
 export class AlertComponent implements OnInit {
 
-  constructor(){
+  constructor() {
     this.modalId = `alert-${Math.random().toString(36).substring(2)}`;
   }
 
@@ -19,7 +19,7 @@ export class AlertComponent implements OnInit {
 
   options: AlertOptions;
 
-  open(alertOptions: AlertOptions){
+  open(alertOptions: AlertOptions) {
     this.options = alertOptions;
     this.options.cancelText = this.options.cancelText || 'Cancelar';
     this.options.confirmText = this.options.confirmText || 'OK';
@@ -27,15 +27,16 @@ export class AlertComponent implements OnInit {
     this.options.cancelBtnColor = this.options.cancelBtnColor || 'red';
     $(`#${this.modalId}`).modal({
       closable: false,
+      allowMultiple: this.options.allowMultiple == null ? false : this.options.allowMultiple,
     }).modal('show');
   }
 
-  confirm(){
-    let fn = (this.options.confirmFn) || (() => {});
+  confirm() {
+    let fn = (this.options.confirmFn) || (() => { });
     fn();
     this.close();
   }
-  cancel(){
+  cancel() {
     this.options.cancelFn();
     this.close();
   }
@@ -44,12 +45,12 @@ export class AlertComponent implements OnInit {
     $(`#${this.modalId}`).modal('hide');
   }
 
-  get confirmBtnClass(): string{
+  get confirmBtnClass(): string {
     let color = this.options && this.options.confirmBtnColor ? this.options.confirmBtnColor : 'green';
     return `ui ${color} button`
   }
 
-  get cancelBtnClass(): string{
+  get cancelBtnClass(): string {
     let color = this.options && this.options.cancelBtnColor ? this.options.cancelBtnColor : 'red';
     return `ui ${color} button`
   }

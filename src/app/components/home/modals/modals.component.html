@@ -1,21 +1,31 @@
 <div ch-grid-row>
-  <div ch-grid-column [tablet]="16" [computer]="16" [centered]="false">
+  <div ch-grid-column
+    [tablet]="16"
+    [computer]="16"
+    [centered]="false">
     <div ch-divider></div>
     <h2 class="ui teal header">Modals</h2>
   </div>
 </div>
 <div ch-grid-row>
-  <div ch-grid-column [tablet]="16" [computer]="16" [centered]="false">
-    <button class="ui purple basic button m-r-20" (click)="alert()">
+  <div ch-grid-column
+    [tablet]="16"
+    [computer]="16"
+    [centered]="false">
+    <button class="ui purple basic button m-r-20"
+      (click)="alert()">
       Alert
     </button>
-    <button class="ui teal basic button  m-r-20" (click)="confirm()">
+    <button class="ui teal basic button  m-r-20"
+      (click)="confirm()">
       Confirm dialog
     </button>
-    <button class="ui violet basic button  m-r-20" (click)="openModal()">
+    <button class="ui violet basic button  m-r-20"
+      (click)="openModal()">
       Open modal
     </button>
-    <button class="ui violet basic button  m-r-20" (click)="modal2.open({title: 'Title'})">
+    <button class="ui violet basic button  m-r-20"
+      (click)="modal2.open({title: 'Title'})">
       Open modal 2
     </button>
   </div>
@@ -25,13 +35,16 @@
 <ch-modal #modal>
 
   <div class="image content">
-    <img src="assets/avatar.png" height="1000" alt="">
+    <img src="assets/avatar.png"
+      height="1000"
+      alt="">
     <div class="description">
       <p>Madara Uchiha</p>
     </div>
   </div>
   <div actions>
-    <button class="ui primary basic button" (click)="modal.close()">
+    <button class="ui primary basic button"
+      (click)="closeModal()">
       Close
     </button>
   </div>

@@ -42,11 +42,30 @@ export class ModalsComponent implements OnInit {
 
   openModal() {
     this.modal.open({
+
       showCloseBtn: true,
       title: 'Modal title',
       closable: true,
-      size: 'large',
+      size: 'fullscreen',
       isScrolling: true
     });
   }
+
+  closeModal() {
+    this.alertService.confirm({
+      cancelFn: () => this.alert('You clicked No'),
+      cancelText: 'No',
+      confirmText: 'Yes',
+      confirmFn: () => this.modal.close(),
+      headerTitle: 'Confirm action',
+      isHtml: true,
+      msg: 'Close modal?',
+      confirmBtnColor: 'red',
+      cancelBtnColor: 'basic',
+      allowMultiple: true
+    });
+
+
+  }
+
 }

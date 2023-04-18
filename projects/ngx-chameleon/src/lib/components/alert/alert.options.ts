@@ -1,11 +1,12 @@
-export interface AlertOptions{
+export interface AlertOptions {
   msg: string;
   headerTitle?: string;
-  cancelText?:string;
+  cancelText?: string;
   confirmText?: string;
-  isHtml?:boolean;
-  cancelFn?:Function;
-  confirmFn?:Function;
+  isHtml?: boolean;
+  cancelFn?: Function;
+  confirmFn?: Function;
   confirmBtnColor?: string;
   cancelBtnColor?: string;
+  allowMultiple?: boolean;
 }
