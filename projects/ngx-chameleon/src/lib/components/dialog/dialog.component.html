@@ -1,17 +1,27 @@
-<div [id]="ids.dialog" class="ch-dialog" tabindex="0">
-  <div [id]="ids.overlay" class="ch-overlay">
-    <div [id]="ids.dialogContainer" class="ch-dialog-container" [ngStyle]="{width: width}">
+<div [id]="ids.dialog"
+  class="ch-dialog"
+  tabindex="0">
+  <div [id]="ids.overlay"
+    class="ch-overlay">
+    <div [id]="ids.dialogContainer"
+      class="ch-dialog-container"
+      [ngStyle]="{width: width}">
       <div class="ch-dialog-header">
         <div class="content">
-          <div class="title" *ngIf="title">
-            <div *ngIf="titleIsHtml; else elseTitle;" [innerHTML]="title"></div>
+          <div class="title"
+            *ngIf="title">
+            <div *ngIf="titleIsHtml; else elseTitle;"
+              [innerHTML]="title"></div>
             <ng-template #elseTitle>
-                <span>{{title}}</span>
+              <span>{{title}}</span>
             </ng-template>
           </div>
         </div>
-        <div class="actions">
-          <a [href]="" (click)="close()" class="button">
+        <div class="actions"
+          *ngIf="showCloseButton">
+          <a [href]=""
+            (click)="close()"
+            class="button">
             <i class="close icon"></i>
           </a>
 

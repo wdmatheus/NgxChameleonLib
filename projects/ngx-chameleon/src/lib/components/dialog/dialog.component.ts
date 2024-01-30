@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Input, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { IdGeneratorService } from '../../utils/id-generator.service';
 declare const $: any;
 @Component({
@@ -35,6 +35,8 @@ export class DialogComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input('title') title: string;
 
   @Input('title-is-html') titleIsHtml = false;
+
+  @Input('show-close-button') showCloseButton = true;
 
   @Input('close-on-click')
   closeOnClick = true;
