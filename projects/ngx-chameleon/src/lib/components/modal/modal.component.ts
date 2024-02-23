@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ModalOptions } from './modal.options';
 declare const $: any;
 @Component({
-  selector: 'ch-modal',
+  selector: 'ch-modal,[ch-modal]',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
@@ -26,7 +26,7 @@ export class ModalComponent implements OnInit, OnChanges {
 
   @Input('show-close-btn') showCloseBtn: boolean = false;
 
- // @Input('show-header') showHeader: boolean = true;
+  // @Input('show-header') showHeader: boolean = true;
 
   @Input('size') size: string = '';
 
