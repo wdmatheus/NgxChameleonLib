@@ -1,5 +1,4 @@
-import { AfterContentChecked } from '@angular/core';
-import { Component, OnInit, ElementRef, Input, HostBinding, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { AfterContentChecked, AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnInit } from '@angular/core';
 import { LogoData, LogoOptions } from './logo-options';
 
 @Component({
@@ -14,6 +13,8 @@ export class SideBarComponent implements OnInit, AfterViewInit, AfterContentChec
     private cdref: ChangeDetectorRef) { }
 
   private readonly collapsedKey: string = 'ch-nav-state';
+
+
 
   ngOnInit() {
 
@@ -34,11 +35,11 @@ export class SideBarComponent implements OnInit, AfterViewInit, AfterContentChec
       mutations.forEach((mutation: MutationRecord) => {
         const classList = (mutation.target as HTMLElement).classList;
 
-        if(classList.contains('collapsed') && classList.contains('hover')){
+        if (classList.contains('collapsed') && classList.contains('hover')) {
           this.isCollapsed = false;
           return;
         }
-        if(classList.contains('collapsed')){
+        if (classList.contains('collapsed')) {
           this.isCollapsed = true;
           return;
         }
@@ -62,9 +63,9 @@ export class SideBarComponent implements OnInit, AfterViewInit, AfterContentChec
 
   private changes: MutationObserver;
 
-  private collapsed: boolean = false;
+  public collapsed: boolean = false;
 
-  private isCollapsed = false;
+  protected isCollapsed = false;
 
   @Input('app-name') appName: string = '';
 
@@ -136,9 +137,21 @@ export class SideBarComponent implements OnInit, AfterViewInit, AfterContentChec
     icon: ''
   };
 
+  @Input('custom-expand-button') customExpandButton: CustomExpandButton;
+
   changeState() {
     this.collapsed = !this.collapsed;
     localStorage.setItem(this.collapsedKey, JSON.stringify(this.collapsed));
+  }
+
+  customChangeState() {
+    this.collapsed = !this.collapsed;
+    if (this.collapsed == true) {
+      (this.elementRef.nativeElement as HTMLElement).classList.add('collapsed');
+    }
+    else {
+      (this.elementRef.nativeElement as HTMLElement).classList.remove('collapsed');
+    }
   }
 
   get expandButtonIconClass(): string {
@@ -147,4 +160,11 @@ export class SideBarComponent implements OnInit, AfterViewInit, AfterContentChec
   get expandButtonTextClass(): string {
     return `ch-menu-item-label text  ${this.expandButtonData.color}`
   }
+}
+
+export type CustomExpandButton = {
+  expandedText: string;
+  minimizedText: string;
+  expandedIcon: string;
+  minimizedIcon: string;
 }

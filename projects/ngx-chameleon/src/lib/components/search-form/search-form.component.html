@@ -1,13 +1,23 @@
 <ng-container *ngIf="withTooltip; else withoutTooltipTem">
   <div [attr.class]="'tiny ui icon buttons ' + defaultSearchBtnPosition">
-    <button [attr.class]="'ui ' + color + ' button' + (hidden ? ' basic' : '')" [ngClass]="{'basic': hidden}"
-      (click)="toggle($event)" ch-tooltip [content]="hidden ? hiddenSearchBtnTooltip : visibleSearchBtnTooltip"
-      [is-inverted]="tootipIsInverted" [position]="tootipIsInvertedPosition" [is-html]="false">
+    <button [attr.class]="'ui ' + color + ' button' + (hidden ? ' basic' : '')"
+      [ngClass]="{'basic': hidden}"
+      (click)="toggle($event)"
+      ch-tooltip
+      [content]="hidden ? hiddenSearchBtnTooltip : visibleSearchBtnTooltip"
+      [is-inverted]="tootipIsInverted"
+      [position]="tootipIsInvertedPosition"
+      [is-html]="false">
       <i class="fas fa-filter"></i>
     </button>
 
-    <button [attr.class]="'ui ' + color + ' button basic'" [ngClass]="{'loading': loading}" (click)="search()"
-      ch-tooltip [content]="updateBtnTooltip" [is-inverted]="tootipIsInverted" [is-html]="false"
+    <button [attr.class]="'ui ' + color + ' button basic'"
+      [ngClass]="{'loading': loading}"
+      (click)="search()"
+      ch-tooltip
+      [content]="updateBtnTooltip"
+      [is-inverted]="tootipIsInverted"
+      [is-html]="false"
       [position]="tootipIsInvertedPosition">
       <i class="fas fa-sync"></i>
     </button>
@@ -18,12 +28,15 @@
 
 <ng-template #withoutTooltipTem>
   <div [attr.class]="'tiny ui icon buttons ' + defaultSearchBtnPosition">
-    <button [attr.class]="'ui ' + color + ' button' + (hidden ? ' basic' : '')" [ngClass]="{'basic': hidden}"
-    (click)="toggle($event)">
+    <button [attr.class]="'ui ' + color + ' button' + (hidden ? ' basic' : '')"
+      [ngClass]="{'basic': hidden}"
+      (click)="toggle($event)">
       <i class="fas fa-filter"></i>
     </button>
 
-    <button [attr.class]="'ui ' + color + ' button basic'" [ngClass]="{'loading': loading}" (click)="search()">
+    <button [attr.class]="'ui ' + color + ' button basic'"
+      [ngClass]="{'loading': loading}"
+      (click)="search()">
       <i class="fas fa-sync"></i>
     </button>
   </div>
@@ -39,11 +52,13 @@
     <h4 class="ui dividing header"></h4>
     <ng-content></ng-content>
     <div>
-      <button class="ui orange basic button" (click)="clear()">
+      <button [attr.class]="'ui ' + clearBtnColor + ' basic button'"
+        (click)="clear()">
         <i class="fas fa-eraser fa-icon"></i>
         {{clearBtnText}}
       </button>
-      <button [attr.class]="'ui ' + color + ' basic button'" (click)="search()">
+      <button [attr.class]="'ui ' + color + ' basic button'"
+        (click)="search()">
         <i class="fas fa-search fa-icon"></i>
         {{searchBtnText}}
       </button>

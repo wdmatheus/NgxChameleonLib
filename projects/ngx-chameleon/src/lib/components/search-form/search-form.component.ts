@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ElementRef, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 declare const $: any;
 @Component({
   selector: '[ch-search-form]',
@@ -22,6 +22,7 @@ export class SearchFormComponent implements OnInit, OnChanges {
 
   @Input('title') title: string = 'Formulário de pesquisa';
   @Input('clearBtnText') clearBtnText: string = 'Limpar';
+  @Input('clearBtnColor') clearBtnColor: string = 'orange';
   @Input('searchBtnText') searchBtnText: string = 'Pesquisar';
   @Input('hiddenSearchBtnTooltip') hiddenSearchBtnTooltip: string = 'Mostrar campos de pesquisa';
   @Input('visibleSearchBtnTooltip') visibleSearchBtnTooltip: string = 'Ocultar campos de pesquisa';
