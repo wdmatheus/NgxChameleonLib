@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { IdGeneratorService } from '../../utils/id-generator.service';
 declare const $: any;
 @Component({
@@ -44,6 +44,8 @@ export class DialogComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input('width') width = '400px';
 
   @Input('on-close') onClose: () => void;
+
+  @Output('before-close') beforeClose = new EventEmitter();
 
   ids: any = {
     overlay: `${this.idService.get()}-overlay`,
@@ -110,6 +112,7 @@ export class DialogComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   close() {
+    this.beforeClose.next();
     $(this.idDialogContainer).removeClass('active');
     $(this.idDialog).hide(this.effectDuration);
     if (this.onClose) {
